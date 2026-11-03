@@ -1,0 +1,17 @@
+PANE DETSEMBER PAUSILE — Tallinki jõulukampaania (MITTEAMETLIK KONTSEPTSIOON)
+Portfoolio kaasus kandideerimiseks: Disainer, Tallink Grupp. Autor: Andrii Shnayder
+
+01 kaasus-PDF         12 lk eesti keeles, vektortekst ja klikitavad lingid (alusta siit)
+02 juhend-ja-tekstid  kampaania mini-juhend + kõik tekstid ET/EN korrektuuriks
+03 bannerid           7 formaati × ET/EN
+04 trukk              A3 plakat, A5 flaier: CMYK, OutputIntent FOGRA39, 3 mm üleulatus, Trim/BleedBox,
+                      fondid manustatud (PDF/X-laadne, mitte sertifitseeritud PDF/X)
+05 uudiskiri          600 px HTML + pildid + eelvaated
+06 video              15 s 9:16, 6 s 9:16, 15 s 1:1 (originaalheli, genereeritud koodis)
+07 maandumisleht      HTML/CSS/JS, GitHub Pages valmis (vt README.md)
+08 esitlus            6 slaidi sisetiimile
+09 kirjad             kaaskirja ja isikliku kirja MUSTANDID — ära saada enne korrektuuri
+10 lahtekood          skriptid, millega kandjad, trükifailid, video ja kaasus on tehtud
+
+Hinnad, kuupäevad ja graafikud on näidised. "TALLINK" on kandjatel tekstina logo kohatäitena.
+UX-vaate faktid: tallink.com jõululeht, vaadatud 3.11.2026.

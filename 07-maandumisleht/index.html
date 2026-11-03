@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pane detsember pausile — Tallink (mitteametlik kontseptsioon)</title>
+<meta name="description" content="Jõulukampaania kontseptsioon: vali oma paus — päevareis Helsingisse, kruiis Stockholmi või pikk paus hotelliga. Mitteametlik portfoolio töö.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Pane detsember pausile — mitteametlik kontseptsioon">
+<meta property="og:description" content="Vali oma paus: päevareis, kruiis või pikk paus. Portfoolio töö, mitte Tallinki pakkumine.">
+<meta property="og:image" content="assets/og-1200x630.jpg">
+<meta name="theme-color" content="#081E40">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" media="(min-width:701px)" imagesrcset="assets/hero-wide-1600.jpg 1600w, assets/hero-wide-2400.jpg 2400w, assets/hero-wide-2880.jpg 2880w" imagesizes="100vw">
+<link rel="preload" as="image" media="(max-width:700px)" imagesrcset="assets/hero-900.jpg 900w, assets/hero-1600.jpg 1600w" imagesizes="100vw">
+<link rel="stylesheet" href="assets/paus.css">
+</head>
+<body>
+<a class="skip" href="#pausid">Liigu sisu juurde</a>
+
+<div class="ribbon" role="note">Mitteametlik kontseptsioon · Unofficial concept — hinnad ja graafikud on näidised</div>
+
+<header class="hdr" data-hdr>
+  <div class="wrap hdr__in">
+    <a class="wordmark" href="#top" aria-label="Tallink, lehe algusesse">TALLINK</a>
+    <nav class="hdr__nav" aria-label="Lehe osad">
+      <a href="#pausid">Pausid</a><a href="#hinnas">Mis on hinnas</a><a href="#programm">Programm</a><a href="#kkk">KKK</a>
+    </nav>
+    <a class="btn btn--sm" href="#pausid" data-book>Broneeri</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- 1 HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <picture class="hero__img">
+      <source media="(min-width:701px)" srcset="assets/hero-wide-1600.jpg 1600w, assets/hero-wide-2400.jpg 2400w, assets/hero-wide-2880.jpg 2880w" sizes="100vw">
+      <img src="assets/hero-1600.jpg" srcset="assets/hero-900.jpg 900w, assets/hero-1600.jpg 1600w, assets/hero-2400.jpg 2400w" sizes="100vw"
+        alt="Reisilaev öisel merel, akende soe valgus peegeldub vees kahe vertikaalse valgusribana" fetchpriority="high">
+    </picture>
+    <div class="hero__shade"></div>
+    <div class="wrap hero__in">
+      <p class="eyebrow reveal">Jõulukruiisid ja päevareisid Tallinnast · detsember</p>
+      <h1 id="hero-title" class="hero__title"><span class="line"><span>Pane detsember</span></span><span class="line"><span>pausile.</span></span></h1>
+      <p class="hero__sub reveal">Kingid, tähtajad, peod. Detsember ei oota kedagi — aga meri ootab. Päev, öö või terve nädalavahetus merel.</p>
+      <div class="hero__cta reveal">
+        <a class="btn btn--lg" href="#pausid"><span class="pause" aria-hidden="true"><i></i><i></i></span>Vali oma paus</a>
+        <p class="hero__price">Päevapaus + jõulubuffet <b>alates 39 €</b> <small>näidishind</small></p>
+      </div>
+    </div>
+    <a class="scrollcue" href="#pausid" aria-label="Keri pauside juurde"><span class="pause" aria-hidden="true"><i></i><i></i></span></a>
+  </section>
+
+  <!-- 2 PAUSE PICKER + CALENDAR -->
+  <section id="pausid" class="sec sec--pick" aria-labelledby="pick-title">
+    <div class="wrap">
+      <div class="sec__head reveal">
+        <p class="eyebrow">1 · Vali pikkus</p>
+        <h2 id="pick-title">Kui pikk paus sulle sobib?</h2>
+        <p class="lead">Valgusribade kõrgus näitab pausi pikkust. Vali üks — hinnad, kajutid ja programm kohanduvad.</p>
+      </div>
+
+      <div class="picker" role="radiogroup" aria-label="Pausi pikkus" data-picker>
+        <!-- filled by JS from PAUSES; noscript fallback below -->
+      </div>
+      <noscript><p class="lead">Päevapaus · Kruiisipaus · Pikk paus — broneeri tallink.com lehel.</p></noscript>
+
+      <div class="cal reveal" data-cal>
+        <div class="cal__head">
+          <div>
+            <p class="eyebrow">2 · Vali kuupäev</p>
+            <h3 data-cal-title>Detsember 2026</h3>
+          </div>
+          <p class="cal__note"><span class="dot dot--low"></span>Soodsam <span class="dot dot--high"></span>Populaarne · näidishinnad</p>
+        </div>
+        <div class="cal__dow" aria-hidden="true"><span>E</span><span>T</span><span>K</span><span>N</span><span>R</span><span>L</span><span>P</span></div>
+        <div class="cal__grid" role="grid" aria-label="Detsembri kuupäevad ja näidishinnad" data-cal-grid></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 CABINS -->
+  <section class="sec" aria-labelledby="cab-title" data-cabins-sec>
+    <div class="wrap">
+      <div class="sec__head reveal">
+        <p class="eyebrow">3 · Kajut</p>
+        <h2 id="cab-title">Koht, kus detsember vaikib</h2>
+        <p class="lead" data-cab-lead>Kõik kajutid on kahele kuni neljale. Hind lisandub pausi hinnale.</p>
+      </div>
+      <div class="cards" data-cabins></div>
+    </div>
+  </section>
+
+  <!-- 4 WHAT'S INCLUDED -->
+  <section id="hinnas" class="sec sec--incl" aria-labelledby="incl-title">
+    <div class="wrap incl">
+      <figure class="incl__img reveal">
+        <img src="assets/buffet-1200.jpg" srcset="assets/buffet-800.jpg 800w, assets/buffet-1200.jpg 1200w" sizes="(min-width:900px) 50vw, 100vw" loading="lazy"
+          alt="Põhjamaine jõulubuffet: graavilõhe, heeringas, rukkileib ja piparkoogid küünlavalgel">
+      </figure>
+      <div class="incl__txt">
+        <p class="eyebrow reveal">Mis on hinnas</p>
+        <h2 id="incl-title" class="reveal">Sina naudi. Detsember ootab sadamas.</h2>
+        <ul class="incl__list">
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21h16M6 21V11a6 6 0 0 1 12 0v10M12 5V3"/></svg></span><div><b>Jõulubuffet</b><span>Põhjamaised jõuluroad, eesti ja rootsi klassika.</span></div></li>
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><div><b>Õhtune show</b><span>Elav muusika ja jõuluprogramm pardal.</span></div></li>
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h18M7 12c0-4 2-7 5-7s5 3 5 7M5 16c2 2 4 3 7 3s5-1 7-3"/></svg></span><div><b>Hommik uues linnas</b><span>Jõuluturg Stockholmis või Helsingis.</span></div></li>
+          <li class="reveal"><span class="ico ico--muted" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3c3 4 5 6.5 5 10a5 5 0 0 1-10 0c0-3.5 2-6 5-10z"/></svg></span><div><b>SPA</b><span>Lisatasu eest, broneeri koos reisiga.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 PROGRAM -->
+  <section id="programm" class="sec" aria-labelledby="prog-title">
+    <div class="wrap">
+      <div class="sec__head reveal">
+        <p class="eyebrow">Programm</p>
+        <h2 id="prog-title" data-prog-title>Kruiisipaus tund-tunnilt</h2>
+        <p class="lead">Näidisgraafik. Täpsed ajad sõltuvad laevast ja kuupäevast.</p>
+      </div>
+      <ol class="tl" data-timeline></ol>
+    </div>
+  </section>
+
+  <!-- 6 FAQ -->
+  <section id="kkk" class="sec sec--faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="sec__head reveal">
+        <p class="eyebrow">KKK</p>
+        <h2 id="faq-title">Enne kui laevale astud</h2>
+      </div>
+      <div class="faq__list">
+        <details class="reveal"><summary>Kui palju pagasit tohib kaasa võtta?</summary><p>Jalgsi reisijana võid kaasa võtta käsipagasi ja kohvri. Täpsed piirangud leiad Tallinki pagasitingimustest enne broneerimist.</p></details>
+        <details class="reveal"><summary>Kas lapsed saavad kaasa tulla?</summary><p>Jah, pausid sobivad ka peredele. Laste hinnad ja alaealiste üksi reisimise tingimused leiad Tallinki reisitingimustest.</p></details>
+        <details class="reveal"><summary>Kus saab Tallinnas autot parkida?</summary><p>Sadama läheduses on tasulised parklad. Kui reisid autoga laeva peal, vali broneeringus sõiduki pilet.</p></details>
+        <details class="reveal"><summary>Milliseid dokumente on vaja?</summary><p>Kehtiv pass või ID-kaart. Schengeni-sisestel reisidel Eesti, Soome ja Rootsi vahel piisab ID-kaardist.</p></details>
+        <details class="reveal"><summary>Kas pausi saab hiljem muuta?</summary><p>Kuupäeva ja kajutit saab muuta vastavalt valitud piletitüübi tingimustele. Paindlik pilet annab kõige rohkem vabadust.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 FINAL CTA -->
+  <section class="final" aria-labelledby="final-title">
+    <img class="final__img" src="assets/deck-1200.jpg" srcset="assets/deck-800.jpg 800w, assets/deck-1200.jpg 1200w, assets/deck-1800.jpg 1800w" sizes="100vw" loading="lazy"
+      alt="Laeva välistekk öösel, valge reeling, soojad tuled ja vaikne meri">
+    <div class="final__shade"></div>
+    <div class="wrap final__in reveal">
+      <span class="pause pause--glow" aria-hidden="true"><i></i><i></i></span>
+      <h2 id="final-title">Jõulud algavad pardal.</h2>
+      <p class="lead">Vali oma paus enne, kui detsember otsustab sinu eest.</p>
+      <a class="btn btn--lg" href="#pausid" data-book>Broneeri</a>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap ftr__in">
+    <p><b>Mitteametlik kontseptsioon.</b> Portfoolio töö, mitte Tallinki pakkumine. Hinnad, kuupäevad, graafikud ja paketid on näidised.</p>
+    <p>Kontseptsioon ja disain: Andrii Shnayder · <a href="https://www.linkedin.com/in/andrii-shnayder-a15bb8440">LinkedIn</a></p>
+  </div>
+</footer>
+
+<!-- mobile sticky booking bar -->
+<div class="bar" data-bar aria-live="polite">
+  <div class="bar__txt"><b data-bar-pause>Kruiisipaus</b><span data-bar-meta>Vali kuupäev</span></div>
+  <a class="btn" href="#pausid" data-book>Broneeri</a>
+</div>
+
+<!-- booking summary dialog -->
+<dialog class="dlg" data-dlg aria-labelledby="dlg-title">
+  <form method="dialog" class="dlg__in">
+    <p class="eyebrow">Sinu paus</p>
+    <h3 id="dlg-title" data-dlg-title>Kruiisipaus</h3>
+    <dl class="dlg__dl">
+      <div><dt>Marsruut</dt><dd data-dlg-route></dd></div>
+      <div><dt>Kuupäev</dt><dd data-dlg-date></dd></div>
+      <div><dt>Kajut</dt><dd data-dlg-cabin></dd></div>
+      <div><dt>Hind alates</dt><dd data-dlg-price></dd></div>
+    </dl>
+    <p class="dlg__note" data-dlg-note>Kontseptsioonis viib see nupp Tallinki broneerimissüsteemi, kuhu valik on juba eeltäidetud.</p>
+    <div class="dlg__act">
+      <button class="btn btn--ghost" value="cancel">Muuda valikut</button>
+      <a class="btn" href="https://www.tallink.com/" rel="noopener" data-dlg-go>Jätka broneerimist</a>
+    </div>
+  </form>
+</dialog>
+
+<script src="assets/paus.js" defer></script>
+</body>
+</html>

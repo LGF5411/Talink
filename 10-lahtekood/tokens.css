@@ -1,0 +1,30 @@
+/* Pane detsember pausile — campaign tokens (unofficial concept) */
+:root{
+  --navy-950:#030B1C;
+  --navy-900:#041026;   /* sea at night, bottom of KV */
+  --navy-800:#081E40;   /* sky, primary background */
+  --navy-700:#12305C;   /* raised surfaces */
+  --navy-500:#3A5784;   /* hairlines on dark */
+  --white:#FFFFFF;
+  --mist:#C3CEE0;       /* secondary text on navy, AA on navy-800 */
+  --paper:#F5F2EC;      /* warm white for print / light sections */
+  --ink:#0A1A33;        /* text on paper */
+  --amber:#F2B45E;      /* the ONE warm accent: window light */
+  --amber-soft:rgba(242,180,94,.18);
+
+  --font:"Inter Display","Inter",system-ui,sans-serif;
+  --w-head:600; --w-body:400;   /* two weights only */
+  --tracking-head:-0.025em;
+  --radius:999px;               /* pills; cards use 20px */
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);-webkit-font-smoothing:antialiased;background:var(--navy-800);color:var(--white)}
+
+/* Signature device: the pause mark, two bars of window light */
+.pause{display:inline-flex;gap:calc(var(--pw,10px)*.9);align-items:center}
+.pause i{display:block;width:var(--pw,10px);height:calc(var(--pw,10px)*3.2);
+  border-radius:var(--pw,10px);background:var(--amber);
+  box-shadow:0 0 calc(var(--pw,10px)*1.6) rgba(242,180,94,.55)}
+.wordmark{font-weight:700;letter-spacing:.16em;font-size:var(--wm,22px)}
+.tag-unofficial{font-size:var(--uf,13px);letter-spacing:.06em;color:var(--mist);opacity:.85;text-transform:uppercase}
