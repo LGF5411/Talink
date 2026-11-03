@@ -15,21 +15,81 @@
 <link rel="preload" as="image" media="(min-width:701px)" imagesrcset="assets/hero-wide-1600.jpg 1600w, assets/hero-wide-2400.jpg 2400w, assets/hero-wide-2880.jpg 2880w" imagesizes="100vw">
 <link rel="preload" as="image" media="(max-width:700px)" imagesrcset="assets/hero-900.jpg 900w, assets/hero-1600.jpg 1600w" imagesizes="100vw">
 <link rel="stylesheet" href="assets/paus.css">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 <a class="skip" href="#pausid">Liigu sisu juurde</a>
 
 <div class="ribbon" role="note">Mitteametlik kontseptsioon · Unofficial concept — hinnad ja graafikud on näidised</div>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h14l-3-3M20 16H6l3 3"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-pax" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.8-3.4 3.2-5.5 6-5.5s5.2 2.1 6 5.5M16 5.2a3 3 0 0 1 0 5.6M18 14.8c1.6.8 2.6 2.6 3 5.2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol>
+    <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M4 6h16v4a2 2 0 0 0 0 4v4H4v-4a2 2 0 0 0 0-4z"/></symbol>
+  </defs>
+</svg>
+
 <header class="hdr" data-hdr>
   <div class="wrap hdr__in">
     <a class="wordmark" href="#top" aria-label="Tallink, lehe algusesse">TALLINK</a>
     <nav class="hdr__nav" aria-label="Lehe osad">
-      <a href="#pausid">Pausid</a><a href="#hinnas">Mis on hinnas</a><a href="#programm">Programm</a><a href="#kkk">KKK</a>
+      <a href="#pausid">Pausid</a><a href="#hinnas">Mis on hinnas</a><a href="#club-one">Club One</a><a href="#programm">Programm</a><a href="#kkk">KKK</a>
     </nav>
-    <a class="btn btn--sm" href="#pausid" data-book>Broneeri</a>
+    <div class="hdr__act">
+      <button class="ibtn" type="button" aria-label="Otsi" data-menu-open="search"><svg><use href="#i-search"/></svg></button>
+      <button class="ibtn menubtn" type="button" aria-label="Ava menüü" aria-expanded="false" aria-controls="menu" data-menu-open="nav">
+        <span class="menubtn__bars" aria-hidden="true"><i></i><i></i></span><span class="menubtn__t">Menüü</span>
+      </button>
+      <a class="btn btn--sm hdr__book" href="#pausid" data-book><span class="pause" aria-hidden="true"><i></i><i></i></span>Osta reis</a>
+    </div>
   </div>
+  <span class="hdr__prog" aria-hidden="true" data-prog></span>
 </header>
+
+<!-- full-screen menu: the Tallink site, re-imagined in the campaign language -->
+<div class="menu" id="menu" data-menu hidden>
+  <div class="menu__bg" aria-hidden="true"></div>
+  <div class="menu__in" role="dialog" aria-modal="true" aria-label="Menüü ja otsing">
+    <div class="menu__top wrap">
+      <span class="wordmark">TALLINK</span>
+      <button class="ibtn menubtn is-x" type="button" aria-label="Sulge menüü" data-menu-close><span class="menubtn__bars" aria-hidden="true"><i></i><i></i></span><span class="menubtn__t">Sulge</span></button>
+    </div>
+    <div class="menu__grid wrap">
+      <nav class="menu__nav" aria-label="Tallinki sait">
+        <a class="mi" href="https://www.tallink.com/ee-et" style="--i:0"><b>Laevareisid</b><small>Piletid ja kruiisid</small></a>
+        <a class="mi" href="https://www.tallink.com/ee-et/pardal/kruiisiprogramm" style="--i:1"><b>Pardal</b><small>Kruiisiprogramm, restoranid, ostud</small></a>
+        <a class="mi" href="#pausid" data-goto-pause="paev" style="--i:2"><b>Helsingi</b><small>Päevapaus · 2 h merel</small></a>
+        <a class="mi" href="#pausid" data-goto-pause="kruiis" style="--i:3"><b>Stockholm</b><small>Kruiisipaus · 2 ööd</small></a>
+        <a class="mi" href="https://www.tallink.com/ee-et/soidugraafikud" style="--i:4"><b>Sõidugraafikud</b><small>Kõik liinid ja ajad</small></a>
+        <a class="mi" href="https://www.tallink.com/ee-et/pakkumised-soodustused" style="--i:5"><b>Pakkumised</b><small>Sooduskoodid ja kampaaniad</small></a>
+        <a class="mi" href="https://www.tallink.com/ee-et/hea-teada/reisi-ostmine-muutmine-tuhistamine" style="--i:6"><b>Hea teada</b><small>Muutmine, tühistamine, KKK</small></a>
+        <a class="mi" href="https://www.tallink.com/ee-et/ari-ruhmareisid" style="--i:7"><b>Äri- ja rühmareisid</b><small>Koosolekud merel</small></a>
+      </nav>
+      <div class="menu__side">
+        <div class="msearch" style="--i:2">
+          <label for="q" class="eyebrow">Otsi</label>
+          <div class="msearch__f"><svg aria-hidden="true"><use href="#i-search"/></svg>
+            <input id="q" type="search" placeholder="buffet, pagas, Stockholm…" autocomplete="off" data-search-input aria-describedby="q-hint"></div>
+          <p class="msearch__hint" id="q-hint" data-search-hint>Populaarne</p>
+          <ul class="msearch__res" data-search-res></ul>
+        </div>
+        <div class="menu__acts" style="--i:4">
+          <a class="mact" href="https://www.tallink.com/ee-et/hea-teada/reisi-ostmine-muutmine-tuhistamine"><svg aria-hidden="true"><use href="#i-ticket"/></svg>Halda reisi infot</a>
+          <a class="mact" href="https://clubone.tallink.com/et"><svg aria-hidden="true"><use href="#i-user"/></svg>Logi sisse / Club One</a>
+        </div>
+      </div>
+    </div>
+    <div class="menu__foot wrap" style="--i:6">
+      <nav aria-label="Tallink Grupi teenused"><a href="https://hotels.tallink.com/et">Tallink Hotels</a><a href="https://shopping.tallink.com/et">E-shop</a><a href="https://freight.tallink.com/et">Kaubavedu</a><a href="https://clubone.tallink.com/et">Club One</a><a href="https://company.tallink.com/et">Tallink Grupp</a></nav>
+      <p class="menu__lang"><a href="#top" aria-current="true">ET</a><a href="https://www.tallink.com/" lang="en">EN</a></p>
+    </div>
+  </div>
+</div>
 
 <main id="top">
   <!-- 1 HERO -->
@@ -49,7 +109,35 @@
         <p class="hero__price">Päevapaus + jõulubuffet <b>alates 39 €</b> <small>näidishind</small></p>
       </div>
     </div>
-    <a class="scrollcue" href="#pausid" aria-label="Keri pauside juurde"><span class="pause" aria-hidden="true"><i></i><i></i></span></a>
+  </section>
+
+  <!-- quick booking: Tallink's route+date idea, as a glass "pause bar" linked to the picker -->
+  <section class="wrap pbar" aria-label="Kiirbroneering">
+    <form class="pbar__f" data-book-form novalidate>
+      <div class="pbar__fld">
+        <label for="bk-from">Kust</label>
+        <select id="bk-from" data-bk-from><option>Tallinn</option><option>Helsingi</option><option>Stockholm</option></select>
+      </div>
+      <button class="pbar__swap" type="button" aria-label="Vaheta suunda" data-bk-swap><svg aria-hidden="true"><use href="#i-swap"/></svg></button>
+      <div class="pbar__fld">
+        <label for="bk-to">Kuhu</label>
+        <select id="bk-to" data-bk-to><option>Helsingi</option><option selected>Stockholm</option><option>Tallinn</option></select>
+      </div>
+      <div class="pbar__fld">
+        <label for="bk-date">Väljumine</label>
+        <input id="bk-date" type="date" min="2026-12-01" max="2026-12-31" data-bk-date>
+      </div>
+      <div class="pbar__fld">
+        <span class="pbar__lbl" id="bk-pax-l">Reisijad</span>
+        <div class="step" role="group" aria-labelledby="bk-pax-l">
+          <button type="button" aria-label="Vähem reisijaid" data-pax="-1">−</button>
+          <output data-bk-pax aria-live="polite">2</output>
+          <button type="button" aria-label="Rohkem reisijaid" data-pax="1">+</button>
+        </div>
+      </div>
+      <button class="btn pbar__go" type="submit"><span class="pause" aria-hidden="true"><i></i><i></i></span>Osta reis</button>
+      <p class="pbar__msg" data-bk-msg aria-live="polite"></p>
+    </form>
   </section>
 
   <!-- 2 PAUSE PICKER + CALENDAR -->
@@ -89,6 +177,11 @@
         <p class="lead" data-cab-lead>Kõik kajutid on kahele kuni neljale. Hind lisandub pausi hinnale.</p>
       </div>
       <div class="cards" data-cabins></div>
+      <aside class="family reveal" aria-label="Lastega reisimine">
+        <span class="pause pause--glow" aria-hidden="true"><i style="height:.6em"></i><i style="height:.6em"></i></span>
+        <div><p class="family__t">Lastega? FriendSHIP — laste elamuspakett pardal.</p><p class="family__d">Perepaus on rahulikum, kui lastel on oma programm.</p></div>
+        <a class="tlink" href="https://www.tallink.com/ee-et/laevareisid/kruiis/lastega-reisimine">Lastega reisimine <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </aside>
     </div>
   </section>
 
@@ -108,7 +201,25 @@
           <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h18M7 12c0-4 2-7 5-7s5 3 5 7M5 16c2 2 4 3 7 3s5-1 7-3"/></svg></span><div><b>Hommik uues linnas</b><span>Jõuluturg Stockholmis või Helsingis.</span></div></li>
           <li class="reveal"><span class="ico ico--muted" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3c3 4 5 6.5 5 10a5 5 0 0 1-10 0c0-3.5 2-6 5-10z"/></svg></span><div><b>SPA</b><span>Lisatasu eest, broneeri koos reisiga.</span></div></li>
         </ul>
+        <a class="tlink tlink--ink reveal" href="https://www.tallink.com/ee-et/pardal/buffet-restoranid-baarid">Restoranid ja menüüd <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
+    </div>
+  </section>
+
+  <section id="club-one" class="sec club" aria-labelledby="club-title">
+    <div class="wrap club__in">
+      <div class="reveal">
+        <p class="eyebrow">Club One</p>
+        <h2 id="club-title">Liikmele on paus soodsam.</h2>
+        <p class="lead">Tallinki püsikliendiprogramm: boonuspunktid, liikmehinnad ja sünnipäevasoodustused.</p>
+        <label class="toggle"><input type="checkbox" data-club-toggle><span class="toggle__ui" aria-hidden="true"></span><span>Näita kalendris liikmehindu <small>näidis −10%</small></span></label>
+        <div class="club__act"><a class="btn" href="https://clubone.tallink.com/et/liitumine">Liitu Club One'iga</a><a class="tlink" href="https://clubone.tallink.com/et/sunnipaevapakkumised">Sünnipäevasoodustused <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      </div>
+      <ol class="club__list">
+        <li class="reveal"><span class="club__n">01</span><div><b>Boonuspunktid</b><span>Kogu pardal ja Tallinki poodides, maksa nendega järgmise pausi eest.</span></div></li>
+        <li class="reveal"><span class="club__n">02</span><div><b>Liikmehind kalendris</b><span>Lülita sisse ja näed kohe, kui palju liikmena säästad.</span></div></li>
+        <li class="reveal"><span class="club__n">03</span><div><b>Sünnipäev merel</b><span>Sünnipäevakuu soodustused, kui paus langeb sinu päevale.</span></div></li>
+      </ol>
     </div>
   </section>
 
@@ -121,6 +232,7 @@
         <p class="lead">Näidisgraafik. Täpsed ajad sõltuvad laevast ja kuupäevast.</p>
       </div>
       <ol class="tl" data-timeline></ol>
+      <a class="tlink reveal" href="https://www.tallink.com/ee-et/pardal/kruiisiprogramm">Kruiisiprogramm — artistid ja kuupäevad <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </section>
 
@@ -150,22 +262,51 @@
       <span class="pause pause--glow" aria-hidden="true"><i></i><i></i></span>
       <h2 id="final-title">Jõulud algavad pardal.</h2>
       <p class="lead">Vali oma paus enne, kui detsember otsustab sinu eest.</p>
-      <a class="btn btn--lg" href="#pausid" data-book>Broneeri</a>
+      <a class="btn btn--lg" href="#pausid" data-book><span class="pause" aria-hidden="true"><i></i><i></i></span>Osta reis</a>
     </div>
   </section>
 </main>
 
-<footer class="ftr">
-  <div class="wrap ftr__in">
-    <p><b>Mitteametlik kontseptsioon.</b> Portfoolio töö, mitte Tallinki pakkumine. Hinnad, kuupäevad, graafikud ja paketid on näidised.</p>
-    <p>Kontseptsioon ja disain: Andrii Shnayder · <a href="https://www.linkedin.com/in/andrii-shnayder-a15bb8440">LinkedIn</a></p>
+  <section id="uudiskiri" class="sec stay" aria-labelledby="news-title">
+    <div class="wrap stay__in">
+      <div class="news reveal">
+        <p class="eyebrow">Uudiskiri</p>
+        <h2 id="news-title">Järgmine paus — otse postkasti.</h2>
+        <form class="news__f" data-news novalidate>
+          <label class="sr-only" for="nw-mail">E-posti aadress</label>
+          <input id="nw-mail" type="email" placeholder="sinu@email.ee" autocomplete="email" required aria-describedby="nw-msg" data-news-mail>
+          <button class="btn" type="submit">Liitu</button>
+        </form>
+        <p class="news__msg" id="nw-msg" aria-live="polite" data-news-msg>Kampaaniad, kruiisiprogramm ja liikmepakkumised. Loobuda saab igal ajal.</p>
+      </div>
+      <a class="appcard reveal" href="https://www.tallink.com/ee-et/app">
+        <p class="eyebrow">Tallink Silja Line'i äpp</p>
+        <p class="appcard__t">Pilet, kajutivõti ja pardaprogramm telefonis.</p>
+        <span class="tlink">Vaata äppi <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+<footer class="ftr2">
+  <div class="wrap">
+    <div class="ftr2__motto"><span class="pause pause--glow" aria-hidden="true"><i></i><i></i></span><p>Kõige mõnusamalt koos.</p></div>
+    <div class="ftr2__cols">
+      <div><p class="ftr2__h">AS Tallink Grupp</p><a href="https://company.tallink.com/et">Ettevõttest</a><a href="https://company.tallink.com/et/tule-toole/toopakkumised">Tööpakkumised</a><a href="https://company.tallink.com/et/esg/jatkusuutlik-tegutsemine">Vastutustundlik ettevõtlus</a><a href="https://company.tallink.com/et/meedia/pressiteated">Pressiteated</a></div>
+      <div><p class="ftr2__h">Kontakt</p><a href="https://www.tallink.com/ee-et/hea-teada/kontaktid">Klienditeenindus</a><a href="https://www.tallink.com/ee-et/hea-teada/terminalid-sadamad">Terminalid</a><a href="https://www.tallink.com/ee-et/tagasiside">Tagasiside</a><a href="https://www.tallink.com/ee-et/app">Äpp</a></div>
+      <div><p class="ftr2__h">Hea teada</p><a href="https://www.tallink.com/ee-et/hea-teada/reisitingimused">Üldtingimused</a><a href="https://www.tallink.com/ee-et/hea-teada/reisi-ostmine-muutmine-tuhistamine">KKK</a><a href="https://www.tallink.com/ee-et/privaatsuspoliitika">Privaatsus</a><a href="https://www.tallink.com/ee-et/ligipaasetavus">Ligipääsetavus</a></div>
+      <div><p class="ftr2__h">Jälgi</p><a href="https://www.instagram.com/tallink_ee/">Instagram</a><a href="https://www.facebook.com/TallinkEesti/">Facebook</a><a href="https://www.tiktok.com/@tallink_eesti">TikTok</a><a href="https://www.youtube.com/tallinkeesti">YouTube</a></div>
+    </div>
+    <div class="ftr2__legal">
+      <p><b>Mitteametlik kontseptsioon.</b> Portfoolio töö, mitte Tallinki pakkumine. Hinnad, kuupäevad, graafikud ja paketid on näidised; lingid viivad Tallinki päris lehtedele.</p>
+      <p>Kontseptsioon ja disain: Andrii Shnayder · <a href="https://www.linkedin.com/in/andrii-shnayder-a15bb8440">LinkedIn</a> · <a href="../">Kaasuse avaleht</a></p>
+    </div>
   </div>
 </footer>
 
 <!-- mobile sticky booking bar -->
 <div class="bar" data-bar aria-live="polite">
   <div class="bar__txt"><b data-bar-pause>Kruiisipaus</b><span data-bar-meta>Vali kuupäev</span></div>
-  <a class="btn" href="#pausid" data-book>Broneeri</a>
+  <a class="btn" href="#pausid" data-book>Osta reis</a>
 </div>
 
 <!-- booking summary dialog -->
@@ -177,16 +318,18 @@
       <div><dt>Marsruut</dt><dd data-dlg-route></dd></div>
       <div><dt>Kuupäev</dt><dd data-dlg-date></dd></div>
       <div><dt>Kajut</dt><dd data-dlg-cabin></dd></div>
+      <div><dt>Reisijad</dt><dd data-dlg-pax></dd></div>
       <div><dt>Hind alates</dt><dd data-dlg-price></dd></div>
     </dl>
     <p class="dlg__note" data-dlg-note>Kontseptsioonis viib see nupp Tallinki broneerimissüsteemi, kuhu valik on juba eeltäidetud.</p>
     <div class="dlg__act">
       <button class="btn btn--ghost" value="cancel">Muuda valikut</button>
-      <a class="btn" href="https://www.tallink.com/" rel="noopener" data-dlg-go>Jätka broneerimist</a>
+      <a class="btn" href="https://www.tallink.com/ee-et" rel="noopener" data-dlg-go>Jätka broneerimist</a>
     </div>
   </form>
 </dialog>
 
 <script src="assets/paus.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

@@ -40,14 +40,14 @@
   const MONTHS = ['jaanuar','veebruar','märts','aprill','mai','juuni','juuli','august','september','oktoober','november','detsember'];
   const DOW = ['P','E','T','K','N','R','L'];
 
-  const st = { pause: 'kruiis', day: null, cabin: 'sise' };
+  const st = { pause: 'kruiis', day: null, cabin: 'sise', club: false, pax: 2 };
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const P = () => PAUSES.find(p => p.id === st.pause);
   const price = (p, d) => { // sample price curve: weekends and pre-Christmas cost more
     const dow = new Date(YEAR, MONTH, d).getDay();
     let k = 1 + ((dow === 5 || dow === 6) ? .25 : 0) + (d >= 18 && d <= 23 ? .2 : 0) + (dow === 0 || dow === 4 ? .1 : 0); // never below 'alates'
-    return Math.round(p.from * k);
+    return Math.round(p.from * k * (st.club ? .9 : 1)); // Club One: sample −10 %
   };
   const fmtDate = (d) => `${DOW[new Date(YEAR, MONTH, d).getDay()]}, ${d}. ${MONTHS[MONTH]}`;
 
@@ -60,7 +60,7 @@
       <span class="pk__name">${p.name}</span>
       <span class="pk__meta">${p.meta}</span>
       <span class="pk__desc">${p.desc}</span>
-      <span class="pk__price">Näidishind<span>alates <b>${p.from} €</b></span></span>
+      <span class="pk__price">Näidishind<span>alates <b data-pk-price="${p.id}">${p.from} €</b> / in</span></span>
     </button>`).join('');
   picker.addEventListener('click', e => { const b = e.target.closest('[data-pause]'); if (b) setPause(b.dataset.pause); });
   picker.addEventListener('keydown', e => { // radiogroup arrow keys
@@ -125,7 +125,9 @@
   function sync() {
     const p = P();
     $('[data-bar-pause]').textContent = p.name;
-    $('[data-bar-meta]').textContent = (st.day ? fmtDate(st.day) : 'Vali kuupäev') + ` · alates ${total()} €`;
+    $('[data-bar-meta]').textContent = (st.day ? fmtDate(st.day) : 'Vali kuupäev') + ` · alates ${total()} € / in`;
+    $$('[data-pk-price]').forEach(el => { const q = PAUSES.find(x => x.id === el.dataset.pkPrice); el.textContent = `${Math.round(q.from * (st.club ? .9 : 1))} €`; });
+    document.dispatchEvent(new CustomEvent('paus:change', { detail: { ...st, name: p.name, route: p.route, total: total(), date: st.day ? fmtDate(st.day) : null } }));
   }
   function setPause(id) {
     st.pause = id;
@@ -149,7 +151,8 @@
     $('[data-dlg-route]').textContent = p.route;
     $('[data-dlg-date]').textContent = fmtDate(st.day);
     $('[data-dlg-cabin]').textContent = p.cabins ? c.name : 'Istekoht salongis';
-    $('[data-dlg-price]').textContent = `${total()} € (näidis)`;
+    $('[data-dlg-pax]').textContent = `${st.pax} ${st.pax === 1 ? 'reisija' : 'reisijat'}${st.club ? ' · Club One' : ''}`;
+    $('[data-dlg-price]').textContent = `${total()} € / in · kokku ${total() * st.pax} € (näidis)`;
     dlg.showModal ? dlg.showModal() : dlg.setAttribute('open', '');
   });
 
@@ -161,5 +164,15 @@
   const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' });
   const observe = () => $$('.reveal:not(.is-in)').forEach((el, i) => { el.style.transitionDelay = `${(i % 4) * 70}ms`; io.observe(el); });
 
+  // public API for the site chrome (booking widget, Club One toggle)
+  window.PAUS = {
+    pauses: PAUSES.map(({ id, name, route }) => ({ id, name, route })),
+    state: () => ({ ...st }),
+    setPause: (id) => setPause(id),
+    setDay: (d) => { st.day = d; renderCal(); sync(); },
+    setClub: (on) => { st.club = !!on; renderCal(); sync(); },
+    setPax: (n) => { st.pax = Math.max(1, Math.min(9, n)); sync(); },
+  };
   setPause(st.pause); observe();
+  document.dispatchEvent(new CustomEvent('paus:ready'));
 })();
