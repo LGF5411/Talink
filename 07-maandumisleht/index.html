@@ -10,93 +10,151 @@
 <meta property="og:description" content="Vali oma paus: päevareis, kruiis või pikk paus. Portfoolio töö, mitte Tallinki pakkumine.">
 <meta property="og:image" content="assets/og-1200x630.jpg">
 <meta name="theme-color" content="#081E40">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin-opsz-normal.woff2" crossorigin>
 <link rel="preload" as="image" media="(min-width:701px)" imagesrcset="assets/hero-wide-1600.jpg 1600w, assets/hero-wide-2400.jpg 2400w, assets/hero-wide-2880.jpg 2880w" imagesizes="100vw">
 <link rel="preload" as="image" media="(max-width:700px)" imagesrcset="assets/hero-900.jpg 900w, assets/hero-1600.jpg 1600w" imagesizes="100vw">
-<link rel="stylesheet" href="assets/paus.css">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/app.css">
 </head>
 <body>
-<a class="skip" href="#pausid">Liigu sisu juurde</a>
-
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+<symbol id="i-ship" viewBox="0 0 24 24"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /> <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76" /> <path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6" /> <path d="M12 10v4" /> <path d="M12 2v3" /></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol>
+<symbol id="i-hotel" viewBox="0 0 24 24"><path d="M10 22v-6.57" /> <path d="M12 11h.01" /> <path d="M12 7h.01" /> <path d="M14 15.43V22" /> <path d="M15 16a5 5 0 0 0-6 0" /> <path d="M16 11h.01" /> <path d="M16 7h.01" /> <path d="M8 11h.01" /> <path d="M8 7h.01" /> <rect x="4" y="2" width="16" height="20" rx="2" /></symbol>
+<symbol id="i-bed-double" viewBox="0 0 24 24"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8" /> <path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4" /> <path d="M12 4v6" /> <path d="M2 18h20" /></symbol>
+<symbol id="i-calendar-days" viewBox="0 0 24 24"><path d="M8 2v4" /> <path d="M16 2v4" /> <rect width="18" height="18" x="3" y="4" rx="2" /> <path d="M3 10h18" /> <path d="M8 14h.01" /> <path d="M12 14h.01" /> <path d="M16 14h.01" /> <path d="M8 18h.01" /> <path d="M12 18h.01" /> <path d="M16 18h.01" /></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol>
+<symbol id="i-arrow-right-left" viewBox="0 0 24 24"><path d="m16 3 4 4-4 4" /> <path d="M20 7H4" /> <path d="m8 21-4-4 4-4" /> <path d="M4 17h16" /></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></symbol>
+<symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" /> <path d="M13 5v2" /> <path d="M13 17v2" /> <path d="M13 11v2" /></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /></symbol>
+<symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /> <path d="M7 2v20" /> <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></symbol>
+<symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13" /> <circle cx="6" cy="18" r="3" /> <circle cx="18" cy="16" r="3" /></symbol>
+<symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /> <path d="M20 3v4" /> <path d="M22 5h-4" /> <path d="M4 17v2" /> <path d="M5 18H3" /></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /> <path d="M12 8v13" /> <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /> <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol>
+<symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6" /> <path d="M18.09 10.37A6 6 0 1 1 10.34 18" /> <path d="M7 6h1v4" /> <path d="m16.71 13.88.7.71-2.82 2.82" /></symbol>
+<symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" /> <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" /> <path d="M2 21h20" /> <path d="M7 8v3" /> <path d="M12 8v3" /> <path d="M17 8v3" /> <path d="M7 4h.01" /> <path d="M12 4h.01" /> <path d="M17 4h.01" /></symbol>
+<symbol id="i-luggage" viewBox="0 0 24 24"><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2" /> <path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14" /> <path d="M10 20h4" /> <circle cx="16" cy="20" r="2" /> <circle cx="8" cy="20" r="2" /></symbol>
+<symbol id="i-baby" viewBox="0 0 24 24"><path d="M9 12h.01" /> <path d="M15 12h.01" /> <path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5" /> <path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1" /></symbol>
+<symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" /> <circle cx="7" cy="17" r="2" /> <path d="M9 17h6" /> <circle cx="17" cy="17" r="2" /></symbol>
+<symbol id="i-id-card" viewBox="0 0 24 24"><path d="M16 10h2" /> <path d="M16 14h2" /> <path d="M6.17 15a3 3 0 0 1 5.66 0" /> <circle cx="9" cy="11" r="2" /> <rect x="2" y="5" width="20" height="14" rx="2" /></symbol>
+<symbol id="i-refresh-ccw" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /> <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" /> <path d="M16 16h5v5" /></symbol>
+<symbol id="i-circle-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /> <path d="M12 17h.01" /></symbol>
+<symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" /> <path d="M21 16v2a4 4 0 0 1-4 4h-5" /></symbol>
+<symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /> <rect width="20" height="14" x="2" y="6" rx="2" /></symbol>
+<symbol id="i-shopping-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /> <path d="M3 6h18" /> <path d="M16 10a4 4 0 0 1-8 0" /></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" /> <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <polyline points="12 6 12 12 16 14" /></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol>
+<symbol id="i-armchair" viewBox="0 0 24 24"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3" /> <path d="M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z" /> <path d="M5 18v2" /> <path d="M19 18v2" /></symbol>
+<symbol id="i-sofa" viewBox="0 0 24 24"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3" /> <path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z" /> <path d="M4 18v2" /> <path d="M20 18v2" /> <path d="M12 4v9" /></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol>
+<symbol id="i-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /> <path d="M12 18h.01" /></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" /> <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></symbol>
+<symbol id="i-wine" viewBox="0 0 24 24"><path d="M8 22h8" /> <path d="M7 10h10" /> <path d="M12 15v7" /> <path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z" /></symbol>
+<symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /> <path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /> <path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /></symbol>
+<symbol id="i-anchor" viewBox="0 0 24 24"><path d="M12 22V8" /> <path d="M5 12H2a10 10 0 0 0 20 0h-3" /> <circle cx="12" cy="5" r="3" /></symbol>
+<symbol id="i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /> <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol>
+<symbol id="i-circle-user" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <circle cx="12" cy="10" r="3" /> <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" /></symbol>
+<symbol id="i-ticket-check" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" /> <path d="m9 12 2 2 4-4" /></symbol>
+<symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="M12 5v14" /></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" /></symbol>
+</svg>
+<a class="skip" href="#pausid">Liigu broneerimise juurde</a>
 <div class="ribbon" role="note">Mitteametlik kontseptsioon · Unofficial concept — hinnad ja graafikud on näidised</div>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></symbol>
-    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h14l-3-3M20 16H6l3 3"/></symbol>
-    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
-    <symbol id="i-pax" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.8-3.4 3.2-5.5 6-5.5s5.2 2.1 6 5.5M16 5.2a3 3 0 0 1 0 5.6M18 14.8c1.6.8 2.6 2.6 3 5.2"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol>
-    <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M4 6h16v4a2 2 0 0 0 0 4v4H4v-4a2 2 0 0 0 0-4z"/></symbol>
-  </defs>
-</svg>
-
+<!-- ================= HEADER ================= -->
 <header class="hdr" data-hdr>
   <div class="wrap hdr__in">
     <a class="wordmark" href="#top" aria-label="Tallink, lehe algusesse">TALLINK</a>
     <nav class="hdr__nav" aria-label="Lehe osad">
-      <a href="#pausid">Pausid</a><a href="#hinnas">Mis on hinnas</a><a href="#club-one">Club One</a><a href="#programm">Programm</a><a href="#kkk">KKK</a>
+      <a href="#pausid"><svg aria-hidden="true"><use href="#i-calendar-days"/></svg>Pausid</a>
+      <a href="#hinnas"><svg aria-hidden="true"><use href="#i-gift"/></svg>Mis on hinnas</a>
+      <a href="#club-one"><svg aria-hidden="true"><use href="#i-star"/></svg>Club One</a>
+      <a href="#programm"><svg aria-hidden="true"><use href="#i-clock"/></svg>Programm</a>
+      <a href="#kkk"><svg aria-hidden="true"><use href="#i-circle-help"/></svg>KKK</a>
     </nav>
     <div class="hdr__act">
-      <button class="ibtn" type="button" aria-label="Otsi" data-menu-open="search"><svg><use href="#i-search"/></svg></button>
-      <button class="ibtn menubtn" type="button" aria-label="Ava menüü" aria-expanded="false" aria-controls="menu" data-menu-open="nav">
+      <button class="ibtn" type="button" aria-label="Otsi" data-menu-open="search"><svg aria-hidden="true"><use href="#i-search"/></svg></button>
+      <button class="ibtn menubtn" type="button" aria-expanded="false" aria-controls="menu" data-menu-open="nav">
         <span class="menubtn__bars" aria-hidden="true"><i></i><i></i></span><span class="menubtn__t">Menüü</span>
       </button>
-      <a class="btn btn--sm hdr__book" href="#pausid" data-book><span class="pause" aria-hidden="true"><i></i><i></i></span>Osta reis</a>
+      <a class="btn btn--sm hdr__book" href="#pausid"><span class="pause" aria-hidden="true"><i></i><i></i></span>Osta reis</a>
     </div>
   </div>
-  <span class="hdr__prog" aria-hidden="true" data-prog></span>
+  <span class="hdr__prog" aria-hidden="true"></span>
 </header>
 
-<!-- full-screen menu: the Tallink site, re-imagined in the campaign language -->
+<!-- ================= MENU ================= -->
 <div class="menu" id="menu" data-menu hidden>
-  <div class="menu__bg" aria-hidden="true"></div>
-  <div class="menu__in" role="dialog" aria-modal="true" aria-label="Menüü ja otsing">
-    <div class="menu__top wrap">
-      <span class="wordmark">TALLINK</span>
-      <button class="ibtn menubtn is-x" type="button" aria-label="Sulge menüü" data-menu-close><span class="menubtn__bars" aria-hidden="true"><i></i><i></i></span><span class="menubtn__t">Sulge</span></button>
-    </div>
-    <div class="menu__grid wrap">
-      <nav class="menu__nav" aria-label="Tallinki sait">
-        <a class="mi" href="https://www.tallink.com/ee-et" style="--i:0"><b>Laevareisid</b><small>Piletid ja kruiisid</small></a>
-        <a class="mi" href="https://www.tallink.com/ee-et/pardal/kruiisiprogramm" style="--i:1"><b>Pardal</b><small>Kruiisiprogramm, restoranid, ostud</small></a>
-        <a class="mi" href="#pausid" data-goto-pause="paev" style="--i:2"><b>Helsingi</b><small>Päevapaus · 2 h merel</small></a>
-        <a class="mi" href="#pausid" data-goto-pause="kruiis" style="--i:3"><b>Stockholm</b><small>Kruiisipaus · 2 ööd</small></a>
-        <a class="mi" href="https://www.tallink.com/ee-et/soidugraafikud" style="--i:4"><b>Sõidugraafikud</b><small>Kõik liinid ja ajad</small></a>
-        <a class="mi" href="https://www.tallink.com/ee-et/pakkumised-soodustused" style="--i:5"><b>Pakkumised</b><small>Sooduskoodid ja kampaaniad</small></a>
-        <a class="mi" href="https://www.tallink.com/ee-et/hea-teada/reisi-ostmine-muutmine-tuhistamine" style="--i:6"><b>Hea teada</b><small>Muutmine, tühistamine, KKK</small></a>
-        <a class="mi" href="https://www.tallink.com/ee-et/ari-ruhmareisid" style="--i:7"><b>Äri- ja rühmareisid</b><small>Koosolekud merel</small></a>
-      </nav>
-      <div class="menu__side">
-        <div class="msearch" style="--i:2">
-          <label for="q" class="eyebrow">Otsi</label>
-          <div class="msearch__f"><svg aria-hidden="true"><use href="#i-search"/></svg>
-            <input id="q" type="search" placeholder="buffet, pagas, Stockholm…" autocomplete="off" data-search-input aria-describedby="q-hint"></div>
-          <p class="msearch__hint" id="q-hint" data-search-hint>Populaarne</p>
-          <ul class="msearch__res" data-search-res></ul>
-        </div>
-        <div class="menu__acts" style="--i:4">
-          <a class="mact" href="https://www.tallink.com/ee-et/hea-teada/reisi-ostmine-muutmine-tuhistamine"><svg aria-hidden="true"><use href="#i-ticket"/></svg>Halda reisi infot</a>
-          <a class="mact" href="https://clubone.tallink.com/et"><svg aria-hidden="true"><use href="#i-user"/></svg>Logi sisse / Club One</a>
+  <div class="menu__scrim" data-menu-close></div>
+  <div class="menu__panel" role="dialog" aria-modal="true" aria-label="Menüü">
+    <div class="menu__top">
+      <span class="wordmark wordmark--ink">TALLINK</span>
+      <div class="msearch">
+        <svg aria-hidden="true"><use href="#i-search"/></svg>
+        <label class="sr-only" for="q">Otsi lehelt ja Tallinki saidilt</label>
+        <input id="q" type="search" placeholder="Otsi: buffet, pagas, kajut…" autocomplete="off" data-search-input aria-controls="q-res" aria-describedby="q-hint">
+        <div class="msearch__drop" data-search-drop hidden>
+          <p class="msearch__hint" id="q-hint" data-search-hint></p>
+          <ul class="msearch__res" id="q-res" data-search-res></ul>
         </div>
       </div>
+      <button class="closebtn" type="button" data-menu-close><span>Sulge</span><svg aria-hidden="true"><use href="#i-x"/></svg></button>
     </div>
-    <div class="menu__foot wrap" style="--i:6">
-      <nav aria-label="Tallink Grupi teenused"><a href="https://hotels.tallink.com/et">Tallink Hotels</a><a href="https://shopping.tallink.com/et">E-shop</a><a href="https://freight.tallink.com/et">Kaubavedu</a><a href="https://clubone.tallink.com/et">Club One</a><a href="https://company.tallink.com/et">Tallink Grupp</a></nav>
+
+    <div class="menu__quick">
+      <a class="qt" href="#pausid" data-menu-link><span class="qt__ico"><svg><use href="#i-ticket"/></svg></span><span><b>Osta reis</b><small>Vali paus ja kuupäev</small></span></a>
+      <a class="qt" href="https://www.tallink.com/ee-et/hea-teada/reisi-ostmine-muutmine-tuhistamine"><span class="qt__ico"><svg><use href="#i-ticket-check"/></svg></span><span><b>Halda reisi</b><small>Vaata või muuda broneeringut</small></span></a>
+      <a class="qt" href="https://clubone.tallink.com/et"><span class="qt__ico"><svg><use href="#i-circle-user"/></svg></span><span><b>Logi sisse</b><small>Club One konto ja punktid</small></span></a>
+    </div>
+
+    <div class="menu__body">
+      <nav class="mgroup" aria-labelledby="mg1">
+        <p class="mgroup__h" id="mg1">Reisid</p>
+        <a href="https://www.tallink.com/ee-et"><svg><use href="#i-ship"/></svg>Laevareisid</a>
+        <a href="#pausid" data-goto-pause="paev" data-menu-link><svg><use href="#i-sun"/></svg>Helsingi päevareis</a>
+        <a href="#pausid" data-goto-pause="kruiis" data-menu-link><svg><use href="#i-moon"/></svg>Stockholmi kruiis</a>
+        <a href="https://www.tallink.com/ee-et/soidugraafikud"><svg><use href="#i-calendar-days"/></svg>Sõidugraafikud</a>
+        <a href="https://www.tallink.com/ee-et/pakkumised-soodustused"><svg><use href="#i-tag"/></svg>Pakkumised</a>
+      </nav>
+      <nav class="mgroup" aria-labelledby="mg2">
+        <p class="mgroup__h" id="mg2">Pardal</p>
+        <a href="https://www.tallink.com/ee-et/pardal/buffet-restoranid-baarid"><svg><use href="#i-utensils"/></svg>Restoranid ja buffet</a>
+        <a href="https://www.tallink.com/ee-et/pardal/kruiisiprogramm"><svg><use href="#i-music"/></svg>Kruiisiprogramm</a>
+        <a href="https://www.tallink.com/ee-et/laevareisid/kruiis/lastega-reisimine"><svg><use href="#i-baby"/></svg>Lastega reisimine</a>
+        <a href="https://www.tallink.com/ee-et/pardal/ostud-pardal"><svg><use href="#i-shopping-bag"/></svg>Ostud pardal</a>
+      </nav>
+      <nav class="mgroup" aria-labelledby="mg3">
+        <p class="mgroup__h" id="mg3">Abi</p>
+        <a href="https://www.tallink.com/ee-et/hea-teada/reisi-ostmine-muutmine-tuhistamine"><svg><use href="#i-circle-help"/></svg>KKK ja reisi muutmine</a>
+        <a href="https://www.tallink.com/ee-et/hea-teada/terminalid-sadamad"><svg><use href="#i-map-pin"/></svg>Terminalid ja sadamad</a>
+        <a href="https://www.tallink.com/ee-et/hea-teada/kontaktid"><svg><use href="#i-headset"/></svg>Klienditeenindus</a>
+        <a href="https://www.tallink.com/ee-et/ari-ruhmareisid"><svg><use href="#i-briefcase"/></svg>Äri- ja rühmareisid</a>
+      </nav>
+      <a class="mfeature" href="#pausid" data-menu-link>
+        <img src="assets/img/menu-feature.jpg" alt="" loading="lazy">
+        <span class="mfeature__txt"><small>Jõulud 2026</small><b>Pane detsember pausile</b><span class="mfeature__cta">Vali oma paus <svg><use href="#i-arrow-right"/></svg></span></span>
+      </a>
+    </div>
+
+    <div class="menu__foot">
+      <nav aria-label="Tallink Grupi teenused"><a href="https://hotels.tallink.com/et">Tallink Hotels</a><a href="https://shopping.tallink.com/et">E-shop</a><a href="https://freight.tallink.com/et">Kaubavedu</a><a href="https://company.tallink.com/et">Tallink Grupp</a></nav>
       <p class="menu__lang"><a href="#top" aria-current="true">ET</a><a href="https://www.tallink.com/" lang="en">EN</a></p>
     </div>
   </div>
 </div>
 
 <main id="top">
-  <!-- 1 HERO -->
+  <!-- ================= HERO ================= -->
   <section class="hero" aria-labelledby="hero-title">
     <picture class="hero__img">
       <source media="(min-width:701px)" srcset="assets/hero-wide-1600.jpg 1600w, assets/hero-wide-2400.jpg 2400w, assets/hero-wide-2880.jpg 2880w" sizes="100vw">
-      <img src="assets/hero-1600.jpg" srcset="assets/hero-900.jpg 900w, assets/hero-1600.jpg 1600w, assets/hero-2400.jpg 2400w" sizes="100vw"
+      <img src="assets/hero-1600.jpg" srcset="assets/hero-900.jpg 900w, assets/hero-1600.jpg 1600w" sizes="100vw"
         alt="Reisilaev öisel merel, akende soe valgus peegeldub vees kahe vertikaalse valgusribana" fetchpriority="high">
     </picture>
     <div class="hero__shade"></div>
@@ -111,225 +169,366 @@
     </div>
   </section>
 
-  <!-- quick booking: Tallink's route+date idea, as a glass "pause bar" linked to the picker -->
-  <section class="wrap pbar" aria-label="Kiirbroneering">
-    <form class="pbar__f" data-book-form novalidate>
-      <div class="pbar__fld">
-        <label for="bk-from">Kust</label>
-        <select id="bk-from" data-bk-from><option>Tallinn</option><option>Helsingi</option><option>Stockholm</option></select>
-      </div>
-      <button class="pbar__swap" type="button" aria-label="Vaheta suunda" data-bk-swap><svg aria-hidden="true"><use href="#i-swap"/></svg></button>
-      <div class="pbar__fld">
-        <label for="bk-to">Kuhu</label>
-        <select id="bk-to" data-bk-to><option>Helsingi</option><option selected>Stockholm</option><option>Tallinn</option></select>
-      </div>
-      <div class="pbar__fld">
-        <label for="bk-date">Väljumine</label>
-        <input id="bk-date" type="date" min="2026-12-01" max="2026-12-31" data-bk-date>
-      </div>
-      <div class="pbar__fld">
-        <span class="pbar__lbl" id="bk-pax-l">Reisijad</span>
-        <div class="step" role="group" aria-labelledby="bk-pax-l">
-          <button type="button" aria-label="Vähem reisijaid" data-pax="-1">−</button>
-          <output data-bk-pax aria-live="polite">2</output>
-          <button type="button" aria-label="Rohkem reisijaid" data-pax="1">+</button>
-        </div>
-      </div>
-      <button class="btn pbar__go" type="submit"><span class="pause" aria-hidden="true"><i></i><i></i></span>Osta reis</button>
-      <p class="pbar__msg" data-bk-msg aria-live="polite"></p>
-    </form>
-  </section>
-
-  <!-- 2 PAUSE PICKER + CALENDAR -->
-  <section id="pausid" class="sec sec--pick" aria-labelledby="pick-title">
+  <!-- ================= QUICK TICKET ================= -->
+  <section class="tband" aria-labelledby="tk-title">
     <div class="wrap">
-      <div class="sec__head reveal">
-        <p class="eyebrow">1 · Vali pikkus</p>
-        <h2 id="pick-title">Kui pikk paus sulle sobib?</h2>
-        <p class="lead">Valgusribade kõrgus näitab pausi pikkust. Vali üks — hinnad, kajutid ja programm kohanduvad.</p>
+      <div class="tband__head reveal">
+        <h2 id="tk-title" class="tband__title"><svg aria-hidden="true"><use href="#i-ticket"/></svg>Tead juba, kuhu? <span>Broneeri ühe reaga.</span></h2>
+        <p class="tband__note">Kõik pausid algavad Tallinnast · näidishinnad</p>
       </div>
-
-      <div class="picker" role="radiogroup" aria-label="Pausi pikkus" data-picker>
-        <!-- filled by JS from PAUSES; noscript fallback below -->
-      </div>
-      <noscript><p class="lead">Päevapaus · Kruiisipaus · Pikk paus — broneeri tallink.com lehel.</p></noscript>
-
-      <div class="cal reveal" data-cal>
-        <div class="cal__head">
-          <div>
-            <p class="eyebrow">2 · Vali kuupäev</p>
-            <h3 data-cal-title>Detsember 2026</h3>
+      <form class="ticket reveal" data-book-form novalidate>
+        <div class="ticket__main">
+          <div class="tf">
+            <span class="tf__ico" aria-hidden="true"><svg><use href="#i-map-pin"/></svg></span>
+            <label for="bk-from">Kust</label>
+            <select id="bk-from" data-bk-from><option>Tallinn</option><option>Helsingi</option><option>Stockholm</option></select>
           </div>
-          <p class="cal__note"><span class="dot dot--low"></span>Soodsam <span class="dot dot--high"></span>Populaarne · näidishinnad</p>
+          <button class="tf__swap" type="button" aria-label="Vaheta suunda" data-bk-swap><svg aria-hidden="true"><use href="#i-arrow-right-left"/></svg></button>
+          <div class="tf">
+            <span class="tf__ico" aria-hidden="true"><svg><use href="#i-ship"/></svg></span>
+            <label for="bk-to">Kuhu</label>
+            <select id="bk-to" data-bk-to><option>Helsingi</option><option selected>Stockholm</option><option>Tallinn</option></select>
+          </div>
+          <div class="tf">
+            <span class="tf__ico" aria-hidden="true"><svg><use href="#i-calendar-days"/></svg></span>
+            <label for="bk-date">Väljumine</label>
+            <input id="bk-date" type="date" min="2026-12-01" max="2026-12-31" data-bk-date>
+          </div>
+          <div class="tf">
+            <span class="tf__ico" aria-hidden="true"><svg><use href="#i-users"/></svg></span>
+            <span class="tf__lbl" id="tk-pax-l">Reisijad</span>
+            <div class="stepper" role="group" aria-labelledby="tk-pax-l">
+              <button type="button" aria-label="Vähem reisijaid" data-pax="-1"><svg><use href="#i-minus"/></svg></button>
+              <output data-pax-out aria-live="polite">2</output>
+              <button type="button" aria-label="Rohkem reisijaid" data-pax="1"><svg><use href="#i-plus"/></svg></button>
+            </div>
+          </div>
+          <p class="ticket__msg" data-bk-msg aria-live="polite"></p>
         </div>
-        <div class="cal__dow" aria-hidden="true"><span>E</span><span>T</span><span>K</span><span>N</span><span>R</span><span>L</span><span>P</span></div>
-        <div class="cal__grid" role="grid" aria-label="Detsembri kuupäevad ja näidishinnad" data-cal-grid></div>
-      </div>
+        <div class="ticket__stub">
+          <p class="ticket__pp"><small>alates</small><b data-tk-pp>79 €</b><small>inimese kohta</small></p>
+          <button class="btn btn--navy ticket__go" type="submit">Osta reis <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+        </div>
+      </form>
     </div>
   </section>
 
-  <!-- 3 CABINS -->
-  <section class="sec" aria-labelledby="cab-title" data-cabins-sec>
+  <!-- ================= BOOKING FLOW ================= -->
+  <section id="pausid" class="sec sec--paper booking" aria-labelledby="bk-title">
     <div class="wrap">
-      <div class="sec__head reveal">
-        <p class="eyebrow">3 · Kajut</p>
-        <h2 id="cab-title">Koht, kus detsember vaikib</h2>
-        <p class="lead" data-cab-lead>Kõik kajutid on kahele kuni neljale. Hind lisandub pausi hinnale.</p>
-      </div>
-      <div class="cards" data-cabins></div>
-      <aside class="family reveal" aria-label="Lastega reisimine">
-        <span class="pause pause--glow" aria-hidden="true"><i style="height:.6em"></i><i style="height:.6em"></i></span>
-        <div><p class="family__t">Lastega? FriendSHIP — laste elamuspakett pardal.</p><p class="family__d">Perepaus on rahulikum, kui lastel on oma programm.</p></div>
-        <a class="tlink" href="https://www.tallink.com/ee-et/laevareisid/kruiis/lastega-reisimine">Lastega reisimine <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      </aside>
-    </div>
-  </section>
-
-  <!-- 4 WHAT'S INCLUDED -->
-  <section id="hinnas" class="sec sec--incl" aria-labelledby="incl-title">
-    <div class="wrap incl">
-      <figure class="incl__img reveal">
-        <img src="assets/buffet-1200.jpg" srcset="assets/buffet-800.jpg 800w, assets/buffet-1200.jpg 1200w" sizes="(min-width:900px) 50vw, 100vw" loading="lazy"
-          alt="Põhjamaine jõulubuffet: graavilõhe, heeringas, rukkileib ja piparkoogid küünlavalgel">
-      </figure>
-      <div class="incl__txt">
-        <p class="eyebrow reveal">Mis on hinnas</p>
-        <h2 id="incl-title" class="reveal">Sina naudi. Detsember ootab sadamas.</h2>
-        <ul class="incl__list">
-          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21h16M6 21V11a6 6 0 0 1 12 0v10M12 5V3"/></svg></span><div><b>Jõulubuffet</b><span>Põhjamaised jõuluroad, eesti ja rootsi klassika.</span></div></li>
-          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><div><b>Õhtune show</b><span>Elav muusika ja jõuluprogramm pardal.</span></div></li>
-          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h18M7 12c0-4 2-7 5-7s5 3 5 7M5 16c2 2 4 3 7 3s5-1 7-3"/></svg></span><div><b>Hommik uues linnas</b><span>Jõuluturg Stockholmis või Helsingis.</span></div></li>
-          <li class="reveal"><span class="ico ico--muted" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3c3 4 5 6.5 5 10a5 5 0 0 1-10 0c0-3.5 2-6 5-10z"/></svg></span><div><b>SPA</b><span>Lisatasu eest, broneeri koos reisiga.</span></div></li>
-        </ul>
-        <a class="tlink tlink--ink reveal" href="https://www.tallink.com/ee-et/pardal/buffet-restoranid-baarid">Restoranid ja menüüd <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <section id="club-one" class="sec club" aria-labelledby="club-title">
-    <div class="wrap club__in">
-      <div class="reveal">
-        <p class="eyebrow">Club One</p>
-        <h2 id="club-title">Liikmele on paus soodsam.</h2>
-        <p class="lead">Tallinki püsikliendiprogramm: boonuspunktid, liikmehinnad ja sünnipäevasoodustused.</p>
-        <label class="toggle"><input type="checkbox" data-club-toggle><span class="toggle__ui" aria-hidden="true"></span><span>Näita kalendris liikmehindu <small>näidis −10%</small></span></label>
-        <div class="club__act"><a class="btn" href="https://clubone.tallink.com/et/liitumine">Liitu Club One'iga</a><a class="tlink" href="https://clubone.tallink.com/et/sunnipaevapakkumised">Sünnipäevasoodustused <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
-      </div>
-      <ol class="club__list">
-        <li class="reveal"><span class="club__n">01</span><div><b>Boonuspunktid</b><span>Kogu pardal ja Tallinki poodides, maksa nendega järgmise pausi eest.</span></div></li>
-        <li class="reveal"><span class="club__n">02</span><div><b>Liikmehind kalendris</b><span>Lülita sisse ja näed kohe, kui palju liikmena säästad.</span></div></li>
-        <li class="reveal"><span class="club__n">03</span><div><b>Sünnipäev merel</b><span>Sünnipäevakuu soodustused, kui paus langeb sinu päevale.</span></div></li>
+      <header class="shead reveal">
+        <p class="chip"><svg aria-hidden="true"><use href="#i-calendar-days"/></svg>Broneerimine · 3 sammu</p>
+        <h2 id="bk-title">Kolm sammu <em>jõuludeni merel.</em></h2>
+        <p class="lead">Vali pikkus, kuupäev ja koht. Sinu pausi kokkuvõte uueneb kohe — hind on alati näha.</p>
+      </header>
+      <ol class="steps reveal" data-steps aria-label="Broneerimise sammud">
+        <li><a href="#s1" data-step="1"><span class="steps__n"><svg aria-hidden="true"><use href="#i-check"/></svg><i>1</i></span>Pikkus</a></li>
+        <li><a href="#s2" data-step="2"><span class="steps__n"><svg aria-hidden="true"><use href="#i-check"/></svg><i>2</i></span>Kuupäev</a></li>
+        <li><a href="#s3" data-step="3"><span class="steps__n"><svg aria-hidden="true"><use href="#i-check"/></svg><i>3</i></span>Koht</a></li>
       </ol>
+
+      <div class="bstep" id="s1">
+        <h3 class="bstep__h"><span class="bstep__n">1</span>Kui pikk paus sulle sobib?</h3>
+        <div class="picker" role="radiogroup" aria-label="Pausi pikkus" data-picker></div>
+      </div>
+
+      <div class="booking__grid">
+        <div class="booking__flow">
+          <div class="bstep" id="s2">
+            <div class="bstep__row">
+              <h3 class="bstep__h"><span class="bstep__n">2</span>Millal sõidad?</h3>
+              <p class="legend"><span class="dot dot--low"></span>Soodsam <span class="dot dot--high"></span>Populaarne</p>
+            </div>
+            <div class="cal" data-cal>
+              <div class="cal__head"><p class="cal__m">Detsember 2026</p><p class="cal__hint" data-cal-hint>Hinnad inimese kohta · näidis</p></div>
+              <div class="cal__dow" aria-hidden="true"><span>E</span><span>T</span><span>K</span><span>N</span><span>R</span><span>L</span><span>P</span></div>
+              <div class="cal__grid" role="grid" aria-label="Detsembri kuupäevad ja näidishinnad" data-cal-grid></div>
+            </div>
+          </div>
+
+          <div class="bstep" id="s3">
+            <h3 class="bstep__h"><span class="bstep__n">3</span><span data-opt-title>Kus sa puhkad?</span></h3>
+            <p class="bstep__lead" data-opt-lead></p>
+            <div class="opts" role="radiogroup" aria-labelledby="s3" data-opts></div>
+            <aside class="family reveal" aria-label="Lastega reisimine">
+              <span class="family__ico" aria-hidden="true"><svg><use href="#i-baby"/></svg></span>
+              <div><p class="family__t">Lastega? FriendSHIP on laste elamuspakett pardal.</p><p class="family__d">Perepaus on rahulikum, kui lastel on oma programm.</p></div>
+              <a class="tlink tlink--ink" href="https://www.tallink.com/ee-et/laevareisid/kruiis/lastega-reisimine">Vaata lähemalt <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </aside>
+          </div>
+        </div>
+
+        <aside class="summary" aria-label="Sinu paus" data-summary>
+          <div class="summary__card">
+            <div class="summary__img"><img data-sum-img src="assets/img/pk-kruiis.jpg" alt=""><span class="summary__badge" data-sum-len>2 ööd</span></div>
+            <div class="summary__body">
+              <p class="eyebrow">Sinu paus</p>
+              <h3 class="summary__name" data-sum-name>Kruiisipaus</h3>
+              <dl class="summary__dl">
+                <div><dt><svg aria-hidden="true"><use href="#i-ship"/></svg>Marsruut</dt><dd data-sum-route></dd></div>
+                <div><dt><svg aria-hidden="true"><use href="#i-calendar-days"/></svg>Kuupäev</dt><dd data-sum-date></dd></div>
+                <div><dt><svg aria-hidden="true"><use href="#i-bed-double"/></svg>Koht</dt><dd data-sum-opt></dd></div>
+                <div><dt><svg aria-hidden="true"><use href="#i-users"/></svg>Reisijad</dt><dd>
+                  <span class="stepper stepper--dark" role="group" aria-label="Reisijate arv">
+                    <button type="button" aria-label="Vähem reisijaid" data-pax="-1"><svg><use href="#i-minus"/></svg></button>
+                    <output data-pax-out>2</output>
+                    <button type="button" aria-label="Rohkem reisijaid" data-pax="1"><svg><use href="#i-plus"/></svg></button>
+                  </span></dd></div>
+              </dl>
+              <div class="summary__price">
+                <p class="summary__pp"><small>alates</small><b data-sum-pp>79 €</b><small>/ in</small></p>
+                <p class="summary__total" data-sum-total>Kokku 158 €</p>
+              </div>
+              <p class="summary__club" data-sum-club hidden><svg aria-hidden="true"><use href="#i-star"/></svg>Club One liikmehind arvestatud</p>
+              <button class="btn btn--amber summary__cta" type="button" data-sum-cta>Vali kuupäev</button>
+              <p class="summary__note">Näidishinnad. Lõplik hind ja vabad kohad selguvad broneerimisel.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
     </div>
   </section>
 
-  <!-- 5 PROGRAM -->
-  <section id="programm" class="sec" aria-labelledby="prog-title">
+  <!-- ================= WHY: drag compare ================= -->
+  <section class="sec sec--night why" aria-labelledby="why-title">
+    <div class="wrap why__in">
+      <div class="why__txt reveal">
+        <p class="chip chip--dark"><svg aria-hidden="true"><use href="#i-waves"/></svg>Miks paus?</p>
+        <h2 id="why-title">Sama detsember. <em>Kaks erinevat õhtut.</em></h2>
+        <p class="lead">Lohista pausimärki ja vaata, mis juhtub, kui detsember jääb sadamasse.</p>
+        <ul class="why__list">
+          <li><span class="why__ico"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><div><b>Kaks tundi Helsingisse</b><span>või üks öö Stockholmini.</span></div></li>
+          <li><span class="why__ico"><svg aria-hidden="true"><use href="#i-utensils"/></svg></span><div><b>Jõululaud on kaetud</b><span>Keegi ei pea täna süüa tegema.</span></div></li>
+          <li><span class="why__ico"><svg aria-hidden="true"><use href="#i-sparkles"/></svg></span><div><b>Hommikul uus linn</b><span>Jõuluturg, kohv ja aega küllalt.</span></div></li>
+        </ul>
+      </div>
+      <div class="cmp reveal" data-cmp style="--x:52%">
+        <img class="cmp__a" src="assets/img/cmp-city.jpg" alt="Kiire detsember linnas: ummikud, vihm ja poekottidega inimesed" loading="lazy">
+        <div class="cmp__b"><img src="assets/img/cmp-sea.jpg" alt="Vaikne öine meri, laeva tuled peegelduvad vees" loading="lazy"></div>
+        <span class="cmp__lbl cmp__lbl--a">Detsember linnas</span>
+        <span class="cmp__lbl cmp__lbl--b">Detsember merel</span>
+        <div class="cmp__line" aria-hidden="true"></div>
+        <div class="cmp__handle" role="slider" tabindex="0" aria-label="Võrdle linna ja merd" aria-valuemin="0" aria-valuemax="100" aria-valuenow="52" aria-valuetext="52% merd" data-cmp-handle>
+          <span class="pause" aria-hidden="true"><i></i><i></i></span>
+        </div>
+        <p class="cmp__tip" aria-hidden="true">Lohista</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INCLUDED: bento ================= -->
+  <section id="hinnas" class="sec sec--sand incl" aria-labelledby="incl-title">
     <div class="wrap">
-      <div class="sec__head reveal">
-        <p class="eyebrow">Programm</p>
+      <header class="shead reveal">
+        <p class="chip"><svg aria-hidden="true"><use href="#i-gift"/></svg>Mis on hinnas</p>
+        <h2 id="incl-title">Sina naudi. <em>Detsember ootab sadamas.</em></h2>
+      </header>
+      <div class="bento">
+        <figure class="tile tile--a reveal">
+          <img src="assets/buffet-1200.jpg" srcset="assets/buffet-800.jpg 800w, assets/buffet-1200.jpg 1200w" sizes="(min-width:900px) 66vw, 100vw" alt="Põhjamaine jõulubuffet: graavilõhe, heeringas, rukkileib ja piparkoogid" loading="lazy">
+          <figcaption><span class="badge badge--in"><svg><use href="#i-check"/></svg>Hinnas</span><b><svg aria-hidden="true"><use href="#i-utensils"/></svg>Jõulubuffet</b><span>Põhjamaised jõuluroad, eesti ja rootsi klassika.</span></figcaption>
+        </figure>
+        <figure class="tile tile--b reveal">
+          <img src="assets/img/bento-deck.jpg" alt="Laeva välistekk öösel, valge reeling ja soojad tuled" loading="lazy">
+          <figcaption><span class="badge badge--in"><svg><use href="#i-check"/></svg>Hinnas</span><b><svg aria-hidden="true"><use href="#i-music"/></svg>Õhtune programm</b><span>Elav muusika ja jõuluõhtu pardal.</span></figcaption>
+        </figure>
+        <figure class="tile tile--c reveal">
+          <img src="assets/img/tl-window.jpg" alt="Illuminaator, väljas meri ja kalda tuled, aknalaual hõõgvein" loading="lazy">
+          <figcaption><span class="badge badge--in"><svg><use href="#i-check"/></svg>Kruiisil</span><b><svg aria-hidden="true"><use href="#i-sun"/></svg>Hommik uues linnas</b><span>Päev Stockholmis või Helsingis.</span></figcaption>
+        </figure>
+        <figure class="tile tile--d reveal">
+          <img src="assets/img/bento-cabin.jpg" alt="Hubane kajut suure aknaga" loading="lazy">
+          <figcaption><span class="badge badge--opt">Valikuline</span><b><svg aria-hidden="true"><use href="#i-bed-double"/></svg>Vaikne kajut</b><span>Sisekajut, merevaade või premium.</span></figcaption>
+        </figure>
+        <div class="tile tile--e reveal">
+          <p class="tile__h">Lisatasu eest</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-sparkles"/></svg>SPA ja saun</li>
+            <li><svg aria-hidden="true"><use href="#i-wine"/></svg>À la carte restoranid</li>
+            <li><svg aria-hidden="true"><use href="#i-shopping-bag"/></svg>Ostud pardal</li>
+          </ul>
+          <a class="tlink tlink--ink" href="https://www.tallink.com/ee-et/pardal/buffet-restoranid-baarid">Restoranid ja menüüd <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CLUB ONE ================= -->
+  <section id="club-one" class="sec sec--night club" aria-labelledby="club-title">
+    <div class="wrap club__in">
+      <div class="club__media reveal">
+        <img src="assets/img/club.jpg" alt="Jõulubuffet laeval küünlavalgel" loading="lazy">
+        <div class="mcard" aria-hidden="true">
+          <span class="mcard__top"><b>CLUB ONE</b><span class="pause"><i></i><i></i></span></span>
+          <span class="mcard__mid">Liikmekaart</span>
+          <span class="mcard__bot"><span>Andrii S.</span><span>näidis</span></span>
+        </div>
+      </div>
+      <div class="club__txt reveal">
+        <p class="chip chip--dark"><svg aria-hidden="true"><use href="#i-star"/></svg>Club One · püsikliendiprogramm</p>
+        <h2 id="club-title">Liikmena on paus <em>soodsam.</em></h2>
+        <div class="save" data-save>
+          <div class="save__col"><small>Tavahind</small><s data-save-reg>79 €</s></div>
+          <svg class="save__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          <div class="save__col save__col--club"><small>Liikmehind</small><b data-save-club>71 €</b></div>
+          <p class="save__note" data-save-note>Kruiisipaus, inimese kohta · näidis −10%</p>
+        </div>
+        <label class="toggle"><input type="checkbox" data-club-toggle><span class="toggle__ui" aria-hidden="true"></span><span>Arvesta minu pausi hinda liikmehinnaga</span></label>
+        <ul class="perks">
+          <li><span class="perks__ico"><svg aria-hidden="true"><use href="#i-coins"/></svg></span><b>Boonuspunktid</b><span>igalt ostult pardal ja poodides</span></li>
+          <li><span class="perks__ico"><svg aria-hidden="true"><use href="#i-tag"/></svg></span><b>Liikmehinnad</b><span>reisidele ja pakkumistele</span></li>
+          <li><span class="perks__ico"><svg aria-hidden="true"><use href="#i-cake"/></svg></span><b>Sünnipäev</b><span>sünnipäevakuu soodustused</span></li>
+        </ul>
+        <div class="club__act"><a class="btn btn--amber" href="https://clubone.tallink.com/et/liitumine">Liitu Club One'iga</a><a class="tlink" href="https://clubone.tallink.com/et/sunnipaevapakkumised">Sünnipäevasoodustused <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROGRAM ================= -->
+  <section id="programm" class="sec sec--paper prog" aria-labelledby="prog-title">
+    <div class="wrap">
+      <header class="shead reveal">
+        <p class="chip"><svg aria-hidden="true"><use href="#i-clock"/></svg>Programm</p>
         <h2 id="prog-title" data-prog-title>Kruiisipaus tund-tunnilt</h2>
         <p class="lead">Näidisgraafik. Täpsed ajad sõltuvad laevast ja kuupäevast.</p>
+      </header>
+      <div class="prog__in">
+        <ol class="tl" data-timeline></ol>
+        <div class="prog__media" aria-hidden="true">
+          <img data-tl-a src="assets/img/tl-ship.jpg" alt="">
+          <img data-tl-b src="assets/img/tl-ship.jpg" alt="">
+          <p class="prog__cap" data-tl-cap></p>
+        </div>
       </div>
-      <ol class="tl" data-timeline></ol>
-      <a class="tlink reveal" href="https://www.tallink.com/ee-et/pardal/kruiisiprogramm">Kruiisiprogramm — artistid ja kuupäevad <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="tlink tlink--ink reveal" href="https://www.tallink.com/ee-et/pardal/kruiisiprogramm">Kruiisiprogramm: artistid ja kuupäevad <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
     </div>
   </section>
 
-  <!-- 6 FAQ -->
-  <section id="kkk" class="sec sec--faq" aria-labelledby="faq-title">
-    <div class="wrap faq">
-      <div class="sec__head reveal">
-        <p class="eyebrow">KKK</p>
-        <h2 id="faq-title">Enne kui laevale astud</h2>
+  <!-- ================= FAQ ================= -->
+  <section id="kkk" class="sec sec--navy faq" aria-labelledby="faq-title">
+    <div class="wrap faq__in">
+      <div class="faq__side reveal">
+        <p class="chip chip--dark"><svg aria-hidden="true"><use href="#i-circle-help"/></svg>KKK</p>
+        <h2 id="faq-title">Enne kui <em>laevale astud.</em></h2>
+        <div class="help">
+          <span class="help__ico" aria-hidden="true"><svg><use href="#i-headset"/></svg></span>
+          <div><b>Ei leidnud vastust?</b><span>Klienditeenindus aitab broneeringu ja muudatustega.</span>
+            <a class="tlink" href="https://www.tallink.com/ee-et/hea-teada/kontaktid">Klienditeenindus <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a></div>
+        </div>
       </div>
       <div class="faq__list">
-        <details class="reveal"><summary>Kui palju pagasit tohib kaasa võtta?</summary><p>Jalgsi reisijana võid kaasa võtta käsipagasi ja kohvri. Täpsed piirangud leiad Tallinki pagasitingimustest enne broneerimist.</p></details>
-        <details class="reveal"><summary>Kas lapsed saavad kaasa tulla?</summary><p>Jah, pausid sobivad ka peredele. Laste hinnad ja alaealiste üksi reisimise tingimused leiad Tallinki reisitingimustest.</p></details>
-        <details class="reveal"><summary>Kus saab Tallinnas autot parkida?</summary><p>Sadama läheduses on tasulised parklad. Kui reisid autoga laeva peal, vali broneeringus sõiduki pilet.</p></details>
-        <details class="reveal"><summary>Milliseid dokumente on vaja?</summary><p>Kehtiv pass või ID-kaart. Schengeni-sisestel reisidel Eesti, Soome ja Rootsi vahel piisab ID-kaardist.</p></details>
-        <details class="reveal"><summary>Kas pausi saab hiljem muuta?</summary><p>Kuupäeva ja kajutit saab muuta vastavalt valitud piletitüübi tingimustele. Paindlik pilet annab kõige rohkem vabadust.</p></details>
+        <details class="reveal"><summary><span class="faq__ico"><svg aria-hidden="true"><use href="#i-luggage"/></svg></span>Kui palju pagasit tohib kaasa võtta?</summary><p>Jalgsi reisijana võid kaasa võtta käsipagasi ja kohvri. Täpsed piirangud leiad Tallinki pagasitingimustest enne broneerimist.</p></details>
+        <details class="reveal"><summary><span class="faq__ico"><svg aria-hidden="true"><use href="#i-baby"/></svg></span>Kas lapsed saavad kaasa tulla?</summary><p>Jah, pausid sobivad ka peredele. Laste hinnad ja alaealiste üksi reisimise tingimused leiad Tallinki reisitingimustest.</p></details>
+        <details class="reveal"><summary><span class="faq__ico"><svg aria-hidden="true"><use href="#i-car"/></svg></span>Kus saab Tallinnas autot parkida?</summary><p>Sadama läheduses on tasulised parklad. Kui reisid autoga laeva peal, vali broneeringus sõiduki pilet.</p></details>
+        <details class="reveal"><summary><span class="faq__ico"><svg aria-hidden="true"><use href="#i-id-card"/></svg></span>Milliseid dokumente on vaja?</summary><p>Kehtiv pass või ID-kaart. Schengeni-sisestel reisidel Eesti, Soome ja Rootsi vahel piisab ID-kaardist.</p></details>
+        <details class="reveal"><summary><span class="faq__ico"><svg aria-hidden="true"><use href="#i-refresh-ccw"/></svg></span>Kas pausi saab hiljem muuta?</summary><p>Kuupäeva ja kajutit saab muuta vastavalt valitud piletitüübi tingimustele. Paindlik pilet annab kõige rohkem vabadust.</p></details>
       </div>
     </div>
   </section>
 
-  <!-- 7 FINAL CTA -->
+  <!-- ================= FINAL CTA ================= -->
   <section class="final" aria-labelledby="final-title">
-    <img class="final__img" src="assets/deck-1200.jpg" srcset="assets/deck-800.jpg 800w, assets/deck-1200.jpg 1200w, assets/deck-1800.jpg 1800w" sizes="100vw" loading="lazy"
-      alt="Laeva välistekk öösel, valge reeling, soojad tuled ja vaikne meri">
+    <img class="final__img" src="assets/deck-1200.jpg" srcset="assets/deck-800.jpg 800w, assets/deck-1200.jpg 1200w, assets/deck-1800.jpg 1800w" sizes="100vw" loading="lazy" alt="Laeva välistekk öösel, valge reeling, soojad tuled ja vaikne meri">
     <div class="final__shade"></div>
     <div class="wrap final__in reveal">
       <span class="pause pause--glow" aria-hidden="true"><i></i><i></i></span>
-      <h2 id="final-title">Jõulud algavad pardal.</h2>
+      <h2 id="final-title">Jõulud algavad <em>pardal.</em></h2>
       <p class="lead">Vali oma paus enne, kui detsember otsustab sinu eest.</p>
-      <a class="btn btn--lg" href="#pausid" data-book><span class="pause" aria-hidden="true"><i></i><i></i></span>Osta reis</a>
+      <a class="btn btn--lg" href="#pausid"><span class="pause" aria-hidden="true"><i></i><i></i></span>Osta reis</a>
+    </div>
+  </section>
+
+  <!-- ================= APP + NEWSLETTER ================= -->
+  <section id="uudiskiri" class="sec sec--paper stay" aria-labelledby="app-title">
+    <div class="wrap stay__in">
+      <div class="appx reveal">
+        <div class="appx__txt">
+          <p class="chip chip--dark"><svg aria-hidden="true"><use href="#i-smartphone"/></svg>Tallink Silja Line'i äpp</p>
+          <h2 id="app-title">Kogu paus <em>ühes taskus.</em></h2>
+          <ul class="ticks">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>E-pilet ja reisi info</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Sõidugraafikud ja muudatused</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Pardaprogramm ja restoranid</li>
+          </ul>
+          <a class="btn btn--amber" href="https://www.tallink.com/ee-et/app">Vaata äppi</a>
+        </div>
+        <div class="phone" aria-hidden="true">
+          <div class="phone__scr">
+            <p class="phone__top"><span>TALLINK</span><span>12:04</span></p>
+            <div class="eticket">
+              <p class="eticket__k">E-pilet · näidis</p>
+              <p class="eticket__n">Kruiisipaus</p>
+              <p class="eticket__r"><b>TLL</b><svg><use href="#i-ship"/></svg><b>STO</b></p>
+              <div class="eticket__meta"><span><small>Väljumine</small>12. dets 17:30</span><span><small>Reisijad</small>2</span></div>
+              <div class="eticket__perf"></div>
+              <div class="eticket__qr"><svg viewBox="0 0 29 29" fill="#0A1A33" shape-rendering="crispEdges" role="img" aria-label="QR-kood, näidis"><rect x="0" y="0" width="1.02" height="1.02"/><rect x="1" y="0" width="1.02" height="1.02"/><rect x="2" y="0" width="1.02" height="1.02"/><rect x="3" y="0" width="1.02" height="1.02"/><rect x="4" y="0" width="1.02" height="1.02"/><rect x="5" y="0" width="1.02" height="1.02"/><rect x="6" y="0" width="1.02" height="1.02"/><rect x="8" y="0" width="1.02" height="1.02"/><rect x="12" y="0" width="1.02" height="1.02"/><rect x="13" y="0" width="1.02" height="1.02"/><rect x="14" y="0" width="1.02" height="1.02"/><rect x="15" y="0" width="1.02" height="1.02"/><rect x="18" y="0" width="1.02" height="1.02"/><rect x="20" y="0" width="1.02" height="1.02"/><rect x="22" y="0" width="1.02" height="1.02"/><rect x="23" y="0" width="1.02" height="1.02"/><rect x="24" y="0" width="1.02" height="1.02"/><rect x="25" y="0" width="1.02" height="1.02"/><rect x="26" y="0" width="1.02" height="1.02"/><rect x="27" y="0" width="1.02" height="1.02"/><rect x="28" y="0" width="1.02" height="1.02"/><rect x="0" y="1" width="1.02" height="1.02"/><rect x="6" y="1" width="1.02" height="1.02"/><rect x="8" y="1" width="1.02" height="1.02"/><rect x="9" y="1" width="1.02" height="1.02"/><rect x="12" y="1" width="1.02" height="1.02"/><rect x="13" y="1" width="1.02" height="1.02"/><rect x="14" y="1" width="1.02" height="1.02"/><rect x="15" y="1" width="1.02" height="1.02"/><rect x="17" y="1" width="1.02" height="1.02"/><rect x="19" y="1" width="1.02" height="1.02"/><rect x="20" y="1" width="1.02" height="1.02"/><rect x="22" y="1" width="1.02" height="1.02"/><rect x="28" y="1" width="1.02" height="1.02"/><rect x="0" y="2" width="1.02" height="1.02"/><rect x="2" y="2" width="1.02" height="1.02"/><rect x="3" y="2" width="1.02" height="1.02"/><rect x="4" y="2" width="1.02" height="1.02"/><rect x="6" y="2" width="1.02" height="1.02"/><rect x="8" y="2" width="1.02" height="1.02"/><rect x="9" y="2" width="1.02" height="1.02"/><rect x="13" y="2" width="1.02" height="1.02"/><rect x="14" y="2" width="1.02" height="1.02"/><rect x="18" y="2" width="1.02" height="1.02"/><rect x="22" y="2" width="1.02" height="1.02"/><rect x="24" y="2" width="1.02" height="1.02"/><rect x="25" y="2" width="1.02" height="1.02"/><rect x="26" y="2" width="1.02" height="1.02"/><rect x="28" y="2" width="1.02" height="1.02"/><rect x="0" y="3" width="1.02" height="1.02"/><rect x="2" y="3" width="1.02" height="1.02"/><rect x="3" y="3" width="1.02" height="1.02"/><rect x="4" y="3" width="1.02" height="1.02"/><rect x="6" y="3" width="1.02" height="1.02"/><rect x="11" y="3" width="1.02" height="1.02"/><rect x="14" y="3" width="1.02" height="1.02"/><rect x="15" y="3" width="1.02" height="1.02"/><rect x="17" y="3" width="1.02" height="1.02"/><rect x="20" y="3" width="1.02" height="1.02"/><rect x="22" y="3" width="1.02" height="1.02"/><rect x="24" y="3" width="1.02" height="1.02"/><rect x="25" y="3" width="1.02" height="1.02"/><rect x="26" y="3" width="1.02" height="1.02"/><rect x="28" y="3" width="1.02" height="1.02"/><rect x="0" y="4" width="1.02" height="1.02"/><rect x="2" y="4" width="1.02" height="1.02"/><rect x="3" y="4" width="1.02" height="1.02"/><rect x="4" y="4" width="1.02" height="1.02"/><rect x="6" y="4" width="1.02" height="1.02"/><rect x="8" y="4" width="1.02" height="1.02"/><rect x="10" y="4" width="1.02" height="1.02"/><rect x="13" y="4" width="1.02" height="1.02"/><rect x="15" y="4" width="1.02" height="1.02"/><rect x="18" y="4" width="1.02" height="1.02"/><rect x="19" y="4" width="1.02" height="1.02"/><rect x="22" y="4" width="1.02" height="1.02"/><rect x="24" y="4" width="1.02" height="1.02"/><rect x="25" y="4" width="1.02" height="1.02"/><rect x="26" y="4" width="1.02" height="1.02"/><rect x="28" y="4" width="1.02" height="1.02"/><rect x="0" y="5" width="1.02" height="1.02"/><rect x="6" y="5" width="1.02" height="1.02"/><rect x="10" y="5" width="1.02" height="1.02"/><rect x="11" y="5" width="1.02" height="1.02"/><rect x="13" y="5" width="1.02" height="1.02"/><rect x="14" y="5" width="1.02" height="1.02"/><rect x="17" y="5" width="1.02" height="1.02"/><rect x="18" y="5" width="1.02" height="1.02"/><rect x="20" y="5" width="1.02" height="1.02"/><rect x="22" y="5" width="1.02" height="1.02"/><rect x="28" y="5" width="1.02" height="1.02"/><rect x="0" y="6" width="1.02" height="1.02"/><rect x="1" y="6" width="1.02" height="1.02"/><rect x="2" y="6" width="1.02" height="1.02"/><rect x="3" y="6" width="1.02" height="1.02"/><rect x="4" y="6" width="1.02" height="1.02"/><rect x="5" y="6" width="1.02" height="1.02"/><rect x="6" y="6" width="1.02" height="1.02"/><rect x="8" y="6" width="1.02" height="1.02"/><rect x="10" y="6" width="1.02" height="1.02"/><rect x="12" y="6" width="1.02" height="1.02"/><rect x="14" y="6" width="1.02" height="1.02"/><rect x="16" y="6" width="1.02" height="1.02"/><rect x="18" y="6" width="1.02" height="1.02"/><rect x="20" y="6" width="1.02" height="1.02"/><rect x="22" y="6" width="1.02" height="1.02"/><rect x="23" y="6" width="1.02" height="1.02"/><rect x="24" y="6" width="1.02" height="1.02"/><rect x="25" y="6" width="1.02" height="1.02"/><rect x="26" y="6" width="1.02" height="1.02"/><rect x="27" y="6" width="1.02" height="1.02"/><rect x="28" y="6" width="1.02" height="1.02"/><rect x="9" y="7" width="1.02" height="1.02"/><rect x="14" y="7" width="1.02" height="1.02"/><rect x="19" y="7" width="1.02" height="1.02"/><rect x="0" y="8" width="1.02" height="1.02"/><rect x="3" y="8" width="1.02" height="1.02"/><rect x="4" y="8" width="1.02" height="1.02"/><rect x="5" y="8" width="1.02" height="1.02"/><rect x="6" y="8" width="1.02" height="1.02"/><rect x="7" y="8" width="1.02" height="1.02"/><rect x="8" y="8" width="1.02" height="1.02"/><rect x="12" y="8" width="1.02" height="1.02"/><rect x="13" y="8" width="1.02" height="1.02"/><rect x="14" y="8" width="1.02" height="1.02"/><rect x="15" y="8" width="1.02" height="1.02"/><rect x="16" y="8" width="1.02" height="1.02"/><rect x="17" y="8" width="1.02" height="1.02"/><rect x="19" y="8" width="1.02" height="1.02"/><rect x="20" y="8" width="1.02" height="1.02"/><rect x="21" y="8" width="1.02" height="1.02"/><rect x="24" y="8" width="1.02" height="1.02"/><rect x="26" y="8" width="1.02" height="1.02"/><rect x="27" y="8" width="1.02" height="1.02"/><rect x="28" y="8" width="1.02" height="1.02"/><rect x="0" y="9" width="1.02" height="1.02"/><rect x="1" y="9" width="1.02" height="1.02"/><rect x="2" y="9" width="1.02" height="1.02"/><rect x="3" y="9" width="1.02" height="1.02"/><rect x="7" y="9" width="1.02" height="1.02"/><rect x="9" y="9" width="1.02" height="1.02"/><rect x="14" y="9" width="1.02" height="1.02"/><rect x="17" y="9" width="1.02" height="1.02"/><rect x="18" y="9" width="1.02" height="1.02"/><rect x="19" y="9" width="1.02" height="1.02"/><rect x="21" y="9" width="1.02" height="1.02"/><rect x="24" y="9" width="1.02" height="1.02"/><rect x="26" y="9" width="1.02" height="1.02"/><rect x="27" y="9" width="1.02" height="1.02"/><rect x="1" y="10" width="1.02" height="1.02"/><rect x="2" y="10" width="1.02" height="1.02"/><rect x="3" y="10" width="1.02" height="1.02"/><rect x="4" y="10" width="1.02" height="1.02"/><rect x="5" y="10" width="1.02" height="1.02"/><rect x="6" y="10" width="1.02" height="1.02"/><rect x="9" y="10" width="1.02" height="1.02"/><rect x="10" y="10" width="1.02" height="1.02"/><rect x="14" y="10" width="1.02" height="1.02"/><rect x="20" y="10" width="1.02" height="1.02"/><rect x="24" y="10" width="1.02" height="1.02"/><rect x="26" y="10" width="1.02" height="1.02"/><rect x="7" y="11" width="1.02" height="1.02"/><rect x="8" y="11" width="1.02" height="1.02"/><rect x="9" y="11" width="1.02" height="1.02"/><rect x="14" y="11" width="1.02" height="1.02"/><rect x="15" y="11" width="1.02" height="1.02"/><rect x="17" y="11" width="1.02" height="1.02"/><rect x="22" y="11" width="1.02" height="1.02"/><rect x="24" y="11" width="1.02" height="1.02"/><rect x="25" y="11" width="1.02" height="1.02"/><rect x="28" y="11" width="1.02" height="1.02"/><rect x="4" y="12" width="1.02" height="1.02"/><rect x="6" y="12" width="1.02" height="1.02"/><rect x="9" y="12" width="1.02" height="1.02"/><rect x="10" y="12" width="1.02" height="1.02"/><rect x="13" y="12" width="1.02" height="1.02"/><rect x="14" y="12" width="1.02" height="1.02"/><rect x="16" y="12" width="1.02" height="1.02"/><rect x="18" y="12" width="1.02" height="1.02"/><rect x="20" y="12" width="1.02" height="1.02"/><rect x="21" y="12" width="1.02" height="1.02"/><rect x="22" y="12" width="1.02" height="1.02"/><rect x="28" y="12" width="1.02" height="1.02"/><rect x="1" y="13" width="1.02" height="1.02"/><rect x="2" y="13" width="1.02" height="1.02"/><rect x="4" y="13" width="1.02" height="1.02"/><rect x="5" y="13" width="1.02" height="1.02"/><rect x="8" y="13" width="1.02" height="1.02"/><rect x="10" y="13" width="1.02" height="1.02"/><rect x="12" y="13" width="1.02" height="1.02"/><rect x="17" y="13" width="1.02" height="1.02"/><rect x="18" y="13" width="1.02" height="1.02"/><rect x="21" y="13" width="1.02" height="1.02"/><rect x="22" y="13" width="1.02" height="1.02"/><rect x="24" y="13" width="1.02" height="1.02"/><rect x="25" y="13" width="1.02" height="1.02"/><rect x="26" y="13" width="1.02" height="1.02"/><rect x="27" y="13" width="1.02" height="1.02"/><rect x="28" y="13" width="1.02" height="1.02"/><rect x="0" y="14" width="1.02" height="1.02"/><rect x="3" y="14" width="1.02" height="1.02"/><rect x="4" y="14" width="1.02" height="1.02"/><rect x="6" y="14" width="1.02" height="1.02"/><rect x="14" y="14" width="1.02" height="1.02"/><rect x="15" y="14" width="1.02" height="1.02"/><rect x="17" y="14" width="1.02" height="1.02"/><rect x="19" y="14" width="1.02" height="1.02"/><rect x="21" y="14" width="1.02" height="1.02"/><rect x="22" y="14" width="1.02" height="1.02"/><rect x="26" y="14" width="1.02" height="1.02"/><rect x="28" y="14" width="1.02" height="1.02"/><rect x="1" y="15" width="1.02" height="1.02"/><rect x="2" y="15" width="1.02" height="1.02"/><rect x="5" y="15" width="1.02" height="1.02"/><rect x="7" y="15" width="1.02" height="1.02"/><rect x="10" y="15" width="1.02" height="1.02"/><rect x="11" y="15" width="1.02" height="1.02"/><rect x="12" y="15" width="1.02" height="1.02"/><rect x="13" y="15" width="1.02" height="1.02"/><rect x="14" y="15" width="1.02" height="1.02"/><rect x="15" y="15" width="1.02" height="1.02"/><rect x="21" y="15" width="1.02" height="1.02"/><rect x="22" y="15" width="1.02" height="1.02"/><rect x="23" y="15" width="1.02" height="1.02"/><rect x="24" y="15" width="1.02" height="1.02"/><rect x="26" y="15" width="1.02" height="1.02"/><rect x="28" y="15" width="1.02" height="1.02"/><rect x="0" y="16" width="1.02" height="1.02"/><rect x="1" y="16" width="1.02" height="1.02"/><rect x="5" y="16" width="1.02" height="1.02"/><rect x="6" y="16" width="1.02" height="1.02"/><rect x="7" y="16" width="1.02" height="1.02"/><rect x="12" y="16" width="1.02" height="1.02"/><rect x="17" y="16" width="1.02" height="1.02"/><rect x="21" y="16" width="1.02" height="1.02"/><rect x="23" y="16" width="1.02" height="1.02"/><rect x="25" y="16" width="1.02" height="1.02"/><rect x="0" y="17" width="1.02" height="1.02"/><rect x="1" y="17" width="1.02" height="1.02"/><rect x="2" y="17" width="1.02" height="1.02"/><rect x="3" y="17" width="1.02" height="1.02"/><rect x="4" y="17" width="1.02" height="1.02"/><rect x="7" y="17" width="1.02" height="1.02"/><rect x="10" y="17" width="1.02" height="1.02"/><rect x="12" y="17" width="1.02" height="1.02"/><rect x="15" y="17" width="1.02" height="1.02"/><rect x="16" y="17" width="1.02" height="1.02"/><rect x="17" y="17" width="1.02" height="1.02"/><rect x="19" y="17" width="1.02" height="1.02"/><rect x="20" y="17" width="1.02" height="1.02"/><rect x="21" y="17" width="1.02" height="1.02"/><rect x="24" y="17" width="1.02" height="1.02"/><rect x="26" y="17" width="1.02" height="1.02"/><rect x="27" y="17" width="1.02" height="1.02"/><rect x="0" y="18" width="1.02" height="1.02"/><rect x="1" y="18" width="1.02" height="1.02"/><rect x="2" y="18" width="1.02" height="1.02"/><rect x="3" y="18" width="1.02" height="1.02"/><rect x="4" y="18" width="1.02" height="1.02"/><rect x="6" y="18" width="1.02" height="1.02"/><rect x="7" y="18" width="1.02" height="1.02"/><rect x="8" y="18" width="1.02" height="1.02"/><rect x="9" y="18" width="1.02" height="1.02"/><rect x="10" y="18" width="1.02" height="1.02"/><rect x="11" y="18" width="1.02" height="1.02"/><rect x="13" y="18" width="1.02" height="1.02"/><rect x="14" y="18" width="1.02" height="1.02"/><rect x="15" y="18" width="1.02" height="1.02"/><rect x="17" y="18" width="1.02" height="1.02"/><rect x="19" y="18" width="1.02" height="1.02"/><rect x="21" y="18" width="1.02" height="1.02"/><rect x="22" y="18" width="1.02" height="1.02"/><rect x="25" y="18" width="1.02" height="1.02"/><rect x="28" y="18" width="1.02" height="1.02"/><rect x="0" y="19" width="1.02" height="1.02"/><rect x="1" y="19" width="1.02" height="1.02"/><rect x="2" y="19" width="1.02" height="1.02"/><rect x="4" y="19" width="1.02" height="1.02"/><rect x="5" y="19" width="1.02" height="1.02"/><rect x="7" y="19" width="1.02" height="1.02"/><rect x="8" y="19" width="1.02" height="1.02"/><rect x="9" y="19" width="1.02" height="1.02"/><rect x="11" y="19" width="1.02" height="1.02"/><rect x="13" y="19" width="1.02" height="1.02"/><rect x="15" y="19" width="1.02" height="1.02"/><rect x="18" y="19" width="1.02" height="1.02"/><rect x="19" y="19" width="1.02" height="1.02"/><rect x="20" y="19" width="1.02" height="1.02"/><rect x="21" y="19" width="1.02" height="1.02"/><rect x="23" y="19" width="1.02" height="1.02"/><rect x="24" y="19" width="1.02" height="1.02"/><rect x="25" y="19" width="1.02" height="1.02"/><rect x="26" y="19" width="1.02" height="1.02"/><rect x="0" y="20" width="1.02" height="1.02"/><rect x="1" y="20" width="1.02" height="1.02"/><rect x="2" y="20" width="1.02" height="1.02"/><rect x="6" y="20" width="1.02" height="1.02"/><rect x="7" y="20" width="1.02" height="1.02"/><rect x="8" y="20" width="1.02" height="1.02"/><rect x="10" y="20" width="1.02" height="1.02"/><rect x="11" y="20" width="1.02" height="1.02"/><rect x="13" y="20" width="1.02" height="1.02"/><rect x="16" y="20" width="1.02" height="1.02"/><rect x="17" y="20" width="1.02" height="1.02"/><rect x="20" y="20" width="1.02" height="1.02"/><rect x="21" y="20" width="1.02" height="1.02"/><rect x="22" y="20" width="1.02" height="1.02"/><rect x="23" y="20" width="1.02" height="1.02"/><rect x="24" y="20" width="1.02" height="1.02"/><rect x="25" y="20" width="1.02" height="1.02"/><rect x="26" y="20" width="1.02" height="1.02"/><rect x="27" y="20" width="1.02" height="1.02"/><rect x="8" y="21" width="1.02" height="1.02"/><rect x="10" y="21" width="1.02" height="1.02"/><rect x="12" y="21" width="1.02" height="1.02"/><rect x="13" y="21" width="1.02" height="1.02"/><rect x="15" y="21" width="1.02" height="1.02"/><rect x="18" y="21" width="1.02" height="1.02"/><rect x="20" y="21" width="1.02" height="1.02"/><rect x="24" y="21" width="1.02" height="1.02"/><rect x="25" y="21" width="1.02" height="1.02"/><rect x="0" y="22" width="1.02" height="1.02"/><rect x="1" y="22" width="1.02" height="1.02"/><rect x="2" y="22" width="1.02" height="1.02"/><rect x="3" y="22" width="1.02" height="1.02"/><rect x="4" y="22" width="1.02" height="1.02"/><rect x="5" y="22" width="1.02" height="1.02"/><rect x="6" y="22" width="1.02" height="1.02"/><rect x="8" y="22" width="1.02" height="1.02"/><rect x="11" y="22" width="1.02" height="1.02"/><rect x="13" y="22" width="1.02" height="1.02"/><rect x="15" y="22" width="1.02" height="1.02"/><rect x="17" y="22" width="1.02" height="1.02"/><rect x="18" y="22" width="1.02" height="1.02"/><rect x="19" y="22" width="1.02" height="1.02"/><rect x="20" y="22" width="1.02" height="1.02"/><rect x="22" y="22" width="1.02" height="1.02"/><rect x="24" y="22" width="1.02" height="1.02"/><rect x="25" y="22" width="1.02" height="1.02"/><rect x="0" y="23" width="1.02" height="1.02"/><rect x="6" y="23" width="1.02" height="1.02"/><rect x="8" y="23" width="1.02" height="1.02"/><rect x="12" y="23" width="1.02" height="1.02"/><rect x="13" y="23" width="1.02" height="1.02"/><rect x="15" y="23" width="1.02" height="1.02"/><rect x="17" y="23" width="1.02" height="1.02"/><rect x="19" y="23" width="1.02" height="1.02"/><rect x="20" y="23" width="1.02" height="1.02"/><rect x="24" y="23" width="1.02" height="1.02"/><rect x="27" y="23" width="1.02" height="1.02"/><rect x="28" y="23" width="1.02" height="1.02"/><rect x="0" y="24" width="1.02" height="1.02"/><rect x="2" y="24" width="1.02" height="1.02"/><rect x="3" y="24" width="1.02" height="1.02"/><rect x="4" y="24" width="1.02" height="1.02"/><rect x="6" y="24" width="1.02" height="1.02"/><rect x="8" y="24" width="1.02" height="1.02"/><rect x="9" y="24" width="1.02" height="1.02"/><rect x="10" y="24" width="1.02" height="1.02"/><rect x="11" y="24" width="1.02" height="1.02"/><rect x="12" y="24" width="1.02" height="1.02"/><rect x="13" y="24" width="1.02" height="1.02"/><rect x="16" y="24" width="1.02" height="1.02"/><rect x="19" y="24" width="1.02" height="1.02"/><rect x="20" y="24" width="1.02" height="1.02"/><rect x="21" y="24" width="1.02" height="1.02"/><rect x="22" y="24" width="1.02" height="1.02"/><rect x="23" y="24" width="1.02" height="1.02"/><rect x="24" y="24" width="1.02" height="1.02"/><rect x="25" y="24" width="1.02" height="1.02"/><rect x="27" y="24" width="1.02" height="1.02"/><rect x="28" y="24" width="1.02" height="1.02"/><rect x="0" y="25" width="1.02" height="1.02"/><rect x="2" y="25" width="1.02" height="1.02"/><rect x="3" y="25" width="1.02" height="1.02"/><rect x="4" y="25" width="1.02" height="1.02"/><rect x="6" y="25" width="1.02" height="1.02"/><rect x="8" y="25" width="1.02" height="1.02"/><rect x="10" y="25" width="1.02" height="1.02"/><rect x="14" y="25" width="1.02" height="1.02"/><rect x="15" y="25" width="1.02" height="1.02"/><rect x="16" y="25" width="1.02" height="1.02"/><rect x="17" y="25" width="1.02" height="1.02"/><rect x="18" y="25" width="1.02" height="1.02"/><rect x="28" y="25" width="1.02" height="1.02"/><rect x="0" y="26" width="1.02" height="1.02"/><rect x="2" y="26" width="1.02" height="1.02"/><rect x="3" y="26" width="1.02" height="1.02"/><rect x="4" y="26" width="1.02" height="1.02"/><rect x="6" y="26" width="1.02" height="1.02"/><rect x="9" y="26" width="1.02" height="1.02"/><rect x="14" y="26" width="1.02" height="1.02"/><rect x="15" y="26" width="1.02" height="1.02"/><rect x="21" y="26" width="1.02" height="1.02"/><rect x="23" y="26" width="1.02" height="1.02"/><rect x="24" y="26" width="1.02" height="1.02"/><rect x="26" y="26" width="1.02" height="1.02"/><rect x="27" y="26" width="1.02" height="1.02"/><rect x="28" y="26" width="1.02" height="1.02"/><rect x="0" y="27" width="1.02" height="1.02"/><rect x="6" y="27" width="1.02" height="1.02"/><rect x="9" y="27" width="1.02" height="1.02"/><rect x="10" y="27" width="1.02" height="1.02"/><rect x="14" y="27" width="1.02" height="1.02"/><rect x="16" y="27" width="1.02" height="1.02"/><rect x="18" y="27" width="1.02" height="1.02"/><rect x="21" y="27" width="1.02" height="1.02"/><rect x="24" y="27" width="1.02" height="1.02"/><rect x="25" y="27" width="1.02" height="1.02"/><rect x="26" y="27" width="1.02" height="1.02"/><rect x="28" y="27" width="1.02" height="1.02"/><rect x="0" y="28" width="1.02" height="1.02"/><rect x="1" y="28" width="1.02" height="1.02"/><rect x="2" y="28" width="1.02" height="1.02"/><rect x="3" y="28" width="1.02" height="1.02"/><rect x="4" y="28" width="1.02" height="1.02"/><rect x="5" y="28" width="1.02" height="1.02"/><rect x="6" y="28" width="1.02" height="1.02"/><rect x="8" y="28" width="1.02" height="1.02"/><rect x="10" y="28" width="1.02" height="1.02"/><rect x="11" y="28" width="1.02" height="1.02"/><rect x="12" y="28" width="1.02" height="1.02"/><rect x="19" y="28" width="1.02" height="1.02"/><rect x="20" y="28" width="1.02" height="1.02"/><rect x="21" y="28" width="1.02" height="1.02"/><rect x="22" y="28" width="1.02" height="1.02"/></svg></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="newsx reveal">
+        <img src="assets/img/news.jpg" alt="Hõõgvein illuminaatori ääres, väljas öine meri" loading="lazy">
+        <div class="newsx__body">
+          <p class="chip"><svg aria-hidden="true"><use href="#i-mail"/></svg>Uudiskiri</p>
+          <h2 id="news-title">Järgmine paus — <em>otse postkasti.</em></h2>
+          <form class="news__f" data-news novalidate>
+            <label class="sr-only" for="nw-mail">E-posti aadress</label>
+            <input id="nw-mail" type="email" placeholder="sinu@email.ee" autocomplete="email" required aria-describedby="nw-msg" data-news-mail>
+            <button class="btn btn--navy" type="submit">Liitu</button>
+          </form>
+          <p class="news__msg" id="nw-msg" aria-live="polite" data-news-msg>Kampaaniad, kruiisiprogramm ja liikmepakkumised. Loobuda saab igal ajal.</p>
+        </div>
+      </div>
     </div>
   </section>
 </main>
 
-  <section id="uudiskiri" class="sec stay" aria-labelledby="news-title">
-    <div class="wrap stay__in">
-      <div class="news reveal">
-        <p class="eyebrow">Uudiskiri</p>
-        <h2 id="news-title">Järgmine paus — otse postkasti.</h2>
-        <form class="news__f" data-news novalidate>
-          <label class="sr-only" for="nw-mail">E-posti aadress</label>
-          <input id="nw-mail" type="email" placeholder="sinu@email.ee" autocomplete="email" required aria-describedby="nw-msg" data-news-mail>
-          <button class="btn" type="submit">Liitu</button>
-        </form>
-        <p class="news__msg" id="nw-msg" aria-live="polite" data-news-msg>Kampaaniad, kruiisiprogramm ja liikmepakkumised. Loobuda saab igal ajal.</p>
-      </div>
-      <a class="appcard reveal" href="https://www.tallink.com/ee-et/app">
-        <p class="eyebrow">Tallink Silja Line'i äpp</p>
-        <p class="appcard__t">Pilet, kajutivõti ja pardaprogramm telefonis.</p>
-        <span class="tlink">Vaata äppi <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
-      </a>
-    </div>
-  </section>
-
-<footer class="ftr2">
+<!-- ================= FOOTER ================= -->
+<footer class="ftr">
   <div class="wrap">
-    <div class="ftr2__motto"><span class="pause pause--glow" aria-hidden="true"><i></i><i></i></span><p>Kõige mõnusamalt koos.</p></div>
-    <div class="ftr2__cols">
-      <div><p class="ftr2__h">AS Tallink Grupp</p><a href="https://company.tallink.com/et">Ettevõttest</a><a href="https://company.tallink.com/et/tule-toole/toopakkumised">Tööpakkumised</a><a href="https://company.tallink.com/et/esg/jatkusuutlik-tegutsemine">Vastutustundlik ettevõtlus</a><a href="https://company.tallink.com/et/meedia/pressiteated">Pressiteated</a></div>
-      <div><p class="ftr2__h">Kontakt</p><a href="https://www.tallink.com/ee-et/hea-teada/kontaktid">Klienditeenindus</a><a href="https://www.tallink.com/ee-et/hea-teada/terminalid-sadamad">Terminalid</a><a href="https://www.tallink.com/ee-et/tagasiside">Tagasiside</a><a href="https://www.tallink.com/ee-et/app">Äpp</a></div>
-      <div><p class="ftr2__h">Hea teada</p><a href="https://www.tallink.com/ee-et/hea-teada/reisitingimused">Üldtingimused</a><a href="https://www.tallink.com/ee-et/hea-teada/reisi-ostmine-muutmine-tuhistamine">KKK</a><a href="https://www.tallink.com/ee-et/privaatsuspoliitika">Privaatsus</a><a href="https://www.tallink.com/ee-et/ligipaasetavus">Ligipääsetavus</a></div>
-      <div><p class="ftr2__h">Jälgi</p><a href="https://www.instagram.com/tallink_ee/">Instagram</a><a href="https://www.facebook.com/TallinkEesti/">Facebook</a><a href="https://www.tiktok.com/@tallink_eesti">TikTok</a><a href="https://www.youtube.com/tallinkeesti">YouTube</a></div>
+    <div class="ftr__motto"><span class="pause pause--glow" aria-hidden="true"><i></i><i></i></span><p>Kõige mõnusamalt <em>koos.</em></p></div>
+    <div class="ftr__cols">
+      <div><p class="ftr__h">AS Tallink Grupp</p><a href="https://company.tallink.com/et">Ettevõttest</a><a href="https://company.tallink.com/et/tule-toole/toopakkumised">Tööpakkumised</a><a href="https://company.tallink.com/et/esg/jatkusuutlik-tegutsemine">Vastutustundlik ettevõtlus</a><a href="https://company.tallink.com/et/meedia/pressiteated">Pressiteated</a></div>
+      <div><p class="ftr__h">Kontakt</p><a href="https://www.tallink.com/ee-et/hea-teada/kontaktid">Klienditeenindus</a><a href="https://www.tallink.com/ee-et/hea-teada/terminalid-sadamad">Terminalid</a><a href="https://www.tallink.com/ee-et/tagasiside">Tagasiside</a><a href="https://www.tallink.com/ee-et/app">Äpp</a></div>
+      <div><p class="ftr__h">Hea teada</p><a href="https://www.tallink.com/ee-et/hea-teada/reisitingimused">Üldtingimused</a><a href="https://www.tallink.com/ee-et/hea-teada/reisi-ostmine-muutmine-tuhistamine">KKK</a><a href="https://www.tallink.com/ee-et/privaatsuspoliitika">Privaatsus</a><a href="https://www.tallink.com/ee-et/ligipaasetavus">Ligipääsetavus</a></div>
+      <div><p class="ftr__h">Jälgi</p><a href="https://www.instagram.com/tallink_ee/">Instagram</a><a href="https://www.facebook.com/TallinkEesti/">Facebook</a><a href="https://www.tiktok.com/@tallink_eesti">TikTok</a><a href="https://www.youtube.com/tallinkeesti">YouTube</a></div>
     </div>
-    <div class="ftr2__legal">
+    <div class="ftr__legal">
       <p><b>Mitteametlik kontseptsioon.</b> Portfoolio töö, mitte Tallinki pakkumine. Hinnad, kuupäevad, graafikud ja paketid on näidised; lingid viivad Tallinki päris lehtedele.</p>
       <p>Kontseptsioon ja disain: Andrii Shnayder · <a href="https://www.linkedin.com/in/andrii-shnayder-a15bb8440">LinkedIn</a> · <a href="../">Kaasuse avaleht</a></p>
     </div>
   </div>
 </footer>
 
-<!-- mobile sticky booking bar -->
-<div class="bar" data-bar aria-live="polite">
-  <div class="bar__txt"><b data-bar-pause>Kruiisipaus</b><span data-bar-meta>Vali kuupäev</span></div>
-  <a class="btn" href="#pausid" data-book>Osta reis</a>
+<!-- mobile booking bar -->
+<div class="mbar" data-mbar>
+  <div class="mbar__txt"><b data-mbar-name>Kruiisipaus</b><span data-mbar-meta>Vali kuupäev</span></div>
+  <button class="btn btn--amber" type="button" data-mbar-cta>Vali kuupäev</button>
 </div>
 
 <!-- booking summary dialog -->
 <dialog class="dlg" data-dlg aria-labelledby="dlg-title">
   <form method="dialog" class="dlg__in">
-    <p class="eyebrow">Sinu paus</p>
-    <h3 id="dlg-title" data-dlg-title>Kruiisipaus</h3>
-    <dl class="dlg__dl">
-      <div><dt>Marsruut</dt><dd data-dlg-route></dd></div>
-      <div><dt>Kuupäev</dt><dd data-dlg-date></dd></div>
-      <div><dt>Kajut</dt><dd data-dlg-cabin></dd></div>
-      <div><dt>Reisijad</dt><dd data-dlg-pax></dd></div>
-      <div><dt>Hind alates</dt><dd data-dlg-price></dd></div>
-    </dl>
-    <p class="dlg__note" data-dlg-note>Kontseptsioonis viib see nupp Tallinki broneerimissüsteemi, kuhu valik on juba eeltäidetud.</p>
-    <div class="dlg__act">
-      <button class="btn btn--ghost" value="cancel">Muuda valikut</button>
-      <a class="btn" href="https://www.tallink.com/ee-et" rel="noopener" data-dlg-go>Jätka broneerimist</a>
+    <img class="dlg__img" data-dlg-img src="assets/img/pk-kruiis.jpg" alt="">
+    <div class="dlg__body">
+      <p class="eyebrow">Peaaegu valmis</p>
+      <h3 id="dlg-title" data-dlg-title>Kruiisipaus</h3>
+      <dl class="dlg__dl">
+        <div><dt>Marsruut</dt><dd data-dlg-route></dd></div>
+        <div><dt>Kuupäev</dt><dd data-dlg-date></dd></div>
+        <div><dt>Koht</dt><dd data-dlg-opt></dd></div>
+        <div><dt>Reisijad</dt><dd data-dlg-pax></dd></div>
+        <div class="dlg__sum"><dt>Kokku</dt><dd data-dlg-total></dd></div>
+      </dl>
+      <p class="dlg__note">Kontseptsioonis viib nupp Tallinki broneerimissüsteemi, kuhu sinu valik on juba eeltäidetud.</p>
+      <div class="dlg__act">
+        <button class="btn btn--ghost" value="cancel">Muuda valikut</button>
+        <a class="btn btn--amber" href="https://www.tallink.com/ee-et" rel="noopener">Jätka broneerimist <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      </div>
     </div>
   </form>
 </dialog>
 
-<script src="assets/paus.js" defer></script>
-<script src="assets/site.js" defer></script>
+<script src="assets/app.js" defer></script>
 </body>
 </html>

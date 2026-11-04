@@ -7,22 +7,25 @@ Autor: Andrii Shnayder · [LinkedIn](https://www.linkedin.com/in/andrii-shnayder
 ![Maandumisleht](preview-desktop.png)
 
 ## Mis siin on
-- **Vali oma paus** — toote valik pausi pikkuse järgi (päev / kruiis / pikk paus). Valgusribade kõrgus = pausi pikkus.
+- **Kiirbroneering piletina** ja **3-sammuline broneerimine**: pikkus → kuupäev → koht, kõrval elav kokkuvõte hinnaga.
+- **Vali oma paus** — fotokaardid, päeva/öö ikoonirida näitab pausi pikkust ilma lugemata.
 - **Hinnakalender** — soodsamad ja populaarsed päevad, klaviatuuriga liigutav (nooled, Home/End).
-- **Kajutid** — lihtsad kaardid; päevapausil kajutit ei pakuta.
+- **Kajutid ja istekohad** — fotokaardid; päevapausil salong, Comfort-salong või päevakajut.
+- **Menüü** — rühmad ikoonidega, kiirtegevused ja otsing (klahv „/“).
+- **Detsember linnas vs merel** — lohistatav võrdlus, **Club One** liikmehinna lülitiga.
 - **Mis on hinnas**, **programm tund-tunnilt**, **KKK**, **lõpu-CTA**.
 - **Mobiilis** kinnitatud „Broneeri" riba ja kokkuvõte enne broneerimisse suunamist.
 
 ## Tehniline
-- Puhas HTML + CSS + vanilla JS, ilma ehitusetapita. Avaneb otse failist.
+- Puhas HTML + CSS + vanilla JS (`assets/app.css`, `assets/app.js`), ilma ehitusetapita.
+- Fondid (Inter, Instrument Serif) ja ikoonid (Lucide) on lehe sees, välist laadimist pole.
 - Pildid `srcset`-iga (900 / 1600 / 2400 / 2880 px), laisk laadimine allpool voldi.
 - Ligipääsetavus: WCAG AA kontrast, nähtav fookus, `radiogroup` noolenuppudega, kalendris üks Tab-peatus, `dialog` Esc-iga, puutealad ≥ 44 px, `prefers-reduced-motion` toetus.
 - Kontrollitud laiustel 375 / 768 / 1280 / 1440 px — horisontaalset kerimist pole.
 
 ## Käivitamine
 ```
-# avage index.html brauseris, või:
-python3 -m http.server 8000
+python3 -m http.server 8000   # fondid laadivad ainult http kaudu, mitte file://
 ```
 
 ## GitHub Pages
@@ -31,3 +34,5 @@ python3 -m http.server 8000
 3. Leht avaneb aadressil `https://<kasutaja>.github.io/tallink-paus-concept/`.
 
 Platvorm: Tallinki enda sait ei kasuta Shopifyd, seepärast on kampaanialeht tehtud eraldiseisva staatilise lehena, mida on lihtne mistahes CMS-i või kampaaniadomeeni alla tõsta.
+
+Litsentsid: ikoonid Lucide (ISC), fondid Inter ja Instrument Serif (SIL OFL 1.1).
