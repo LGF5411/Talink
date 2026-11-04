@@ -682,3 +682,128 @@ body.menu-on{overflow:hidden}
   .day{min-height:62px}
   .pk__img{aspect-ratio:16/8}
 }
+
+/* ================= THEME SWITCH ================= */
+.themebtn{gap:8px}
+.themebtn svg{width:19px;height:19px;color:var(--amber);transition:transform .6s var(--out)}
+.themebtn:hover svg{transform:rotate(-20deg)}
+.themebtn .i-day{display:none}
+:root[data-theme="day"] .themebtn .i-day{display:block}
+:root[data-theme="day"] .themebtn .i-night{display:none}
+.themebtn__t{font-size:15px}
+@media(max-width:1180px){.themebtn__t{display:none}}
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+
+/* ================= DAY THEME — winter morning on the Baltic =================
+   Night sections become cool "frost", cards turn white, amber text becomes amberInk for contrast.
+   Photo zones (hero, final, photo tiles) stay night: they are the campaign's key visuals. */
+:root[data-theme="day"]{--frost:#E7EDF4;--frost2:#D6E0EC;--dline:rgba(10,26,51,.1);color-scheme:light}
+:root[data-theme="day"] body{background:var(--paper);color:var(--ink)}
+:root[data-theme="day"] :focus-visible{outline-color:var(--amberInk)}
+:root[data-theme="day"] :is(.hero,.final) :focus-visible{outline-color:var(--amber)}
+:root[data-theme="day"] .ribbon{background:var(--frost2);color:var(--ink2)}
+
+/* header: white over the hero photo, ink once solid */
+:root[data-theme="day"] .hdr{color:#fff}
+:root[data-theme="day"] .hdr.is-solid{color:var(--ink);background:rgba(246,243,238,.9);box-shadow:0 1px 0 var(--dline)}
+:root[data-theme="day"] .hdr.is-solid .hdr__nav a{color:var(--ink2)}
+:root[data-theme="day"] .hdr.is-solid .hdr__nav a svg,:root[data-theme="day"] .hdr.is-solid .themebtn svg{color:var(--amberInk)}
+:root[data-theme="day"] .hdr.is-solid .hdr__nav a:hover,:root[data-theme="day"] .hdr.is-solid .hdr__nav a.is-on{color:var(--ink);background:rgba(10,26,51,.06)}
+:root[data-theme="day"] .hdr.is-solid .ibtn:hover{background:rgba(10,26,51,.06)}
+:root[data-theme="day"] .hdr.is-solid .menubtn{box-shadow:inset 0 0 0 1px rgba(10,26,51,.2)}
+:root[data-theme="day"] .hdr.is-solid .menubtn__bars i{background:var(--amberInk)}
+:root[data-theme="day"] .hdr.is-solid .hdr__book{background:var(--n800);color:#fff}
+
+/* photo zones keep their own light-on-dark text */
+:root[data-theme="day"] :is(.hero,.final,.club__media,.phone,.cmp){color:#fff}
+
+/* generic: plain white buttons turn navy on light ground */
+:root[data-theme="day"] :is(.offers,.sec,.mbar,.dlg) .btn:not(.btn--amber):not(.btn--navy):not(.btn--ghost){background:var(--n800);color:#fff}
+:root[data-theme="day"] :is(.offers,.sec,.mbar,.dlg) .btn:not(.btn--amber):not(.btn--navy):not(.btn--ghost):hover{background:var(--n700)}
+:root[data-theme="day"] .btn--ghost{color:var(--ink);box-shadow:inset 0 0 0 1px rgba(10,26,51,.22)}
+:root[data-theme="day"] .btn--ghost:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+:root[data-theme="day"] :is(.offers,.sec--night,.sec--navy,.summary) .tlink:not(.tlink--ink){color:var(--amberInk)}
+
+/* night & navy sections → frost */
+:root[data-theme="day"] :is(.offers,.sec--night,.sec--navy){background:var(--frost);color:var(--ink)}
+:root[data-theme="day"] .sec--navy{background:#EEF2F7}
+:root[data-theme="day"] :is(.sec--night,.sec--navy) .lead{color:var(--ink2)}
+:root[data-theme="day"] :is(.sec--night,.sec--navy) .eyebrow{color:var(--ink3)}
+:root[data-theme="day"] .sec .chip--dark{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--dline)}
+:root[data-theme="day"] .sec .chip--dark svg{color:var(--amberInk)}
+:root[data-theme="day"] :is(.why__ico,.offer__ico,.perks__ico,.help__ico,.faq__ico){background:rgba(242,180,94,.22);color:var(--amberInk)}
+
+/* offers */
+:root[data-theme="day"] .offer{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--dline)}
+:root[data-theme="day"] .offer--club:hover{background:#fff;box-shadow:inset 0 0 0 1px var(--dline),var(--sh2)}
+:root[data-theme="day"] .offer--code.is-applied{box-shadow:inset 0 0 0 2px var(--amberInk)}
+:root[data-theme="day"] .offer__k,:root[data-theme="day"] .offer__t b,:root[data-theme="day"] .offer__go{color:var(--amberInk)}
+:root[data-theme="day"] .offer--club .offer__k,:root[data-theme="day"] .offer__d{color:var(--ink2)}
+:root[data-theme="day"] .code{color:var(--ink);border-color:rgba(138,90,18,.45);background:rgba(242,180,94,.12)}
+:root[data-theme="day"] .code:hover{border-color:var(--amberInk);background:rgba(242,180,94,.22)}
+:root[data-theme="day"] .code small{color:var(--ink3)}
+
+/* booking summary */
+:root[data-theme="day"] .summary__card{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line),var(--sh)}
+:root[data-theme="day"] .summary__img::after{background:linear-gradient(180deg,rgba(255,255,255,0) 55%,#fff)}
+:root[data-theme="day"] .summary__badge{color:#fff}
+:root[data-theme="day"] .summary .eyebrow{color:var(--ink3)}
+:root[data-theme="day"] .summary__dl>div{border-top-color:var(--line)}
+:root[data-theme="day"] .summary__price{border-top-color:var(--line)}
+:root[data-theme="day"] .summary__dl dt,:root[data-theme="day"] .summary__pp small,:root[data-theme="day"] .summary__total{color:var(--ink2)}
+:root[data-theme="day"] .summary__note{color:var(--ink3)}
+:root[data-theme="day"] .summary__dl dt svg,:root[data-theme="day"] .summary__dl dd.is-empty,:root[data-theme="day"] .summary__pp b,
+:root[data-theme="day"] .sumcode,:root[data-theme="day"] .summary__club{color:var(--amberInk)}
+:root[data-theme="day"] .sumcode__x{background:var(--sand);color:var(--ink)}
+:root[data-theme="day"] .stepper--dark button{border-color:var(--line);background:#fff;color:var(--ink)}
+:root[data-theme="day"] .stepper--dark button:hover{background:var(--sand)}
+
+/* why / compare */
+:root[data-theme="day"] .why__list div>span{color:var(--ink2)}
+:root[data-theme="day"] .cmp,:root[data-theme="day"] .club__media{box-shadow:0 40px 80px -44px rgba(10,26,51,.55)}
+
+/* club */
+:root[data-theme="day"] .save,:root[data-theme="day"] .perks li{background:#fff;box-shadow:inset 0 0 0 1px var(--dline)}
+:root[data-theme="day"] .save__col small,:root[data-theme="day"] .save__col s,:root[data-theme="day"] .save__note{color:var(--ink3)}
+:root[data-theme="day"] .save__col b,:root[data-theme="day"] .save__arrow{color:var(--amberInk)}
+:root[data-theme="day"] .perks span:last-child{color:var(--ink2)}
+:root[data-theme="day"] .toggle__ui{background:rgba(10,26,51,.18)}
+:root[data-theme="day"] .toggle input:focus-visible+.toggle__ui{outline-color:var(--amberInk)}
+
+/* faq */
+:root[data-theme="day"] .help{background:#fff;box-shadow:inset 0 0 0 1px var(--dline)}
+:root[data-theme="day"] .help div>span{color:var(--ink2)}
+:root[data-theme="day"] .faq__list details{background:#fff;box-shadow:inset 0 0 0 1px var(--dline)}
+:root[data-theme="day"] .faq__list details[open]{background:#fff;box-shadow:inset 0 0 0 1px var(--dline),var(--sh2)}
+:root[data-theme="day"] .faq__list summary::after{background:linear-gradient(var(--amberInk),var(--amberInk)) center/14px 2px no-repeat,linear-gradient(var(--amberInk),var(--amberInk)) center/2px 14px no-repeat}
+:root[data-theme="day"] .faq__list details p{color:var(--ink2)}
+
+/* app card */
+:root[data-theme="day"] .appx{background:var(--frost);color:var(--ink)}
+:root[data-theme="day"] .appx::before{background:radial-gradient(circle,rgba(242,180,94,.3),transparent 65%)}
+:root[data-theme="day"] .ticks li{color:var(--ink2)}
+:root[data-theme="day"] .ticks svg{color:var(--amberInk)}
+:root[data-theme="day"] .phone{box-shadow:inset 0 0 0 2px #2A3550,0 40px 60px -34px rgba(10,26,51,.55)}
+
+/* footer */
+:root[data-theme="day"] .ftr{background:var(--frost2);color:var(--ink2)}
+:root[data-theme="day"] .ftr__motto p,:root[data-theme="day"] .ftr__h{color:var(--ink)}
+:root[data-theme="day"] .ftr .pause--glow{color:var(--amberInk)}
+:root[data-theme="day"] .ftr .pause--glow i{box-shadow:none}
+:root[data-theme="day"] .ftr__cols,:root[data-theme="day"] .ftr__legal{border-top-color:rgba(10,26,51,.12)}
+:root[data-theme="day"] .ftr__cols a{color:var(--ink2)}
+:root[data-theme="day"] .ftr__cols a:hover{color:var(--ink)}
+:root[data-theme="day"] .ftr__legal{color:var(--ink3)}
+:root[data-theme="day"] .ftr__legal b,:root[data-theme="day"] .ftr__legal a{color:var(--ink2)}
+
+/* mobile bar + dialog */
+:root[data-theme="day"] .mbar{background:rgba(246,243,238,.95);color:var(--ink);border-top-color:var(--line)}
+:root[data-theme="day"] .mbar__txt span{color:var(--ink2)}
+:root[data-theme="day"] .dlg{background:#fff;color:var(--ink);box-shadow:0 40px 100px -30px rgba(10,26,51,.45)}
+:root[data-theme="day"] .dlg::backdrop{background:rgba(10,26,51,.4)}
+:root[data-theme="day"] .dlg .eyebrow{color:var(--ink3)}
+:root[data-theme="day"] .dlg__dl div{border-top-color:var(--line)}
+:root[data-theme="day"] .dlg__dl dt{color:var(--ink2)}
+:root[data-theme="day"] .dlg__sum dd{color:var(--amberInk)}
+:root[data-theme="day"] .dlg__note{color:var(--ink3)}
+:root[data-theme="day"] .club__media{background:var(--n800)}

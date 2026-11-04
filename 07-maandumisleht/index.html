@@ -10,6 +10,9 @@
 <meta property="og:description" content="Vali oma paus: päevareis, kruiis või pikk paus. Portfoolio töö, mitte Tallinki pakkumine.">
 <meta property="og:image" content="assets/og-1200x630.jpg">
 <meta name="theme-color" content="#081E40">
+<script>/* theme before first paint: ?theme=day|night, then saved choice; default = night */
+(function(){var t=null;try{t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('paus-theme')}catch(e){}
+if(t==='day'){document.documentElement.dataset.theme='day';document.querySelector('meta[name=theme-color]').content='#F6F3EE'}})();</script>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin-opsz-normal.woff2" crossorigin>
 <link rel="preload" as="image" media="(min-width:701px)" imagesrcset="assets/hero-wide-1600.jpg 1600w, assets/hero-wide-2400.jpg 2400w, assets/hero-wide-2880.jpg 2880w" imagesizes="100vw">
 <link rel="preload" as="image" media="(max-width:700px)" imagesrcset="assets/hero-900.jpg 900w, assets/hero-1600.jpg 1600w" imagesizes="100vw">
@@ -80,6 +83,7 @@
       <a href="#kkk"><svg aria-hidden="true"><use href="#i-circle-help"/></svg>KKK</a>
     </nav>
     <div class="hdr__act">
+      <button class="ibtn themebtn" type="button" data-theme-toggle aria-pressed="false" aria-label="Päevane vaade" title="Päevane vaade"><svg class="i-night" aria-hidden="true"><use href="#i-sun"/></svg><svg class="i-day" aria-hidden="true"><use href="#i-moon"/></svg><span class="themebtn__t" data-theme-label>Päev</span></button>
       <button class="ibtn" type="button" aria-label="Otsi" data-menu-open="search"><svg aria-hidden="true"><use href="#i-search"/></svg></button>
       <button class="ibtn menubtn" type="button" aria-expanded="false" aria-controls="menu" data-menu-open="nav">
         <span class="menubtn__bars" aria-hidden="true"><i></i><i></i></span><span class="menubtn__t">Menüü</span>

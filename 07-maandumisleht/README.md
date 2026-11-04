@@ -14,6 +14,7 @@ Autor: Andrii Shnayder · [LinkedIn](https://www.linkedin.com/in/andrii-shnayder
 - **Menüü** — rühmad ikoonidega, kiirtegevused ja otsing (klahv „/“).
 - **Detsember linnas vs merel** — lohistatav võrdlus, **Club One** liikmehinna lülitiga.
 - **Mis on hinnas**, **programm tund-tunnilt**, **KKK**, **lõpu-CTA**.
+- **Päeva- ja öövaade** — lüliti päises (päike/kuu), valik jääb meelde; link `?theme=day` avab kohe päevavaate. Fotod jäävad öised — need on kampaania põhivisuaal.
 - **Mobiilis** kinnitatud „Broneeri" riba ja kokkuvõte enne broneerimisse suunamist.
 
 ## Tehniline

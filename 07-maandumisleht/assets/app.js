@@ -381,3 +381,33 @@
   window.PAUS = { state: () => ({ ...st }), setPause, setDay, setPax, setPromo, setClub: (on) => { clubT.checked = !!on; clubT.dispatchEvent(new Event('change')); } };
   setPause(st.pause);
 })();
+
+/* day / night switch — remembers the choice, animates with a circular reveal where supported */
+(() => {
+  const root = document.documentElement, btn = document.querySelector('[data-theme-toggle]');
+  if (!btn) return;
+  const meta = document.querySelector('meta[name=theme-color]'), lbl = btn.querySelector('[data-theme-label]');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const sync = () => {
+    const day = root.dataset.theme === 'day', t = day ? 'Öine vaade' : 'Päevane vaade';
+    btn.setAttribute('aria-pressed', String(day)); btn.setAttribute('aria-label', t); btn.title = t;
+    if (lbl) lbl.textContent = day ? 'Öö' : 'Päev';
+    if (meta) meta.content = day ? '#F6F3EE' : '#081E40';
+  };
+  const apply = (day) => {
+    if (day) root.dataset.theme = 'day'; else delete root.dataset.theme;
+    try { localStorage.setItem('paus-theme', day ? 'day' : 'night'); } catch (e) {}
+    sync();
+  };
+  btn.addEventListener('click', () => {
+    const day = root.dataset.theme !== 'day';
+    if (reduce || !document.startViewTransition) return apply(day);
+    const r = btn.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
+    const end = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    document.startViewTransition(() => apply(day)).ready.then(() => {
+      root.animate({ clipPath: [`circle(0 at ${x}px ${y}px)`, `circle(${end}px at ${x}px ${y}px)`] },
+        { duration: 700, easing: 'cubic-bezier(.16,1,.3,1)', pseudoElement: '::view-transition-new(root)' });
+    });
+  });
+  sync();
+})();
