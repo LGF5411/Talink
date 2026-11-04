@@ -44,14 +44,14 @@
   const MONTHS = ['jaanuar', 'veebruar', 'märts', 'aprill', 'mai', 'juuni', 'juuli', 'august', 'september', 'oktoober', 'november', 'detsember'];
   const DOW = ['P', 'E', 'T', 'K', 'N', 'R', 'L'];
 
-  const st = { pause: 'kruiis', day: null, opt: { cabin: 'sise', day: 'istekoht' }, optTouched: false, pax: 2, club: false };
+  const st = { pause: 'kruiis', day: null, opt: { cabin: 'sise', day: 'istekoht' }, optTouched: false, pax: 2, club: false, promo: false };
   const P = () => PAUSES.find(p => p.id === st.pause);
   const O = () => OPTS[P().kind].list.find(o => o.id === st.opt[P().kind]);
-  const k = () => (st.club ? .9 : 1);
-  const dayPrice = (p, d, club = st.club) => {
+  const k = () => (st.club ? .9 : 1) * (st.promo ? .8 : 1);
+  const dayPrice = (p, d, disc = true) => {
     const dow = new Date(YEAR, MONTH, d).getDay();
     const f = 1 + ((dow === 5 || dow === 6) ? .25 : 0) + (d >= 18 && d <= 23 ? .2 : 0) + (dow === 0 || dow === 4 ? .1 : 0);
-    return Math.round(p.from * f * (club ? .9 : 1));
+    return Math.round(p.from * f * (disc ? k() : 1));
   };
   const pp = () => (st.day ? dayPrice(P(), st.day) : Math.round(P().from * k())) + O().add;
   const total = () => pp() * st.pax;
@@ -90,8 +90,8 @@
       const d = i + 1, cls = v <= lo * 1.02 ? 'is-low' : v >= hi * .9 ? 'is-high' : '';
       return `<button class="day ${cls}" type="button" role="gridcell" tabindex="${d === focusDay ? 0 : -1}" aria-selected="${st.day === d}" data-day="${d}" aria-label="${fmtDate(d)}, alates ${v} eurot${cls === 'is-low' ? ', soodsam' : ''}"><span class="day__n">${d}</span><span class="day__p">${eur(v)}</span></button>`;
     }).join('');
-    cal.classList.toggle('is-club', st.club);
-    $('[data-cal-hint]').textContent = st.club ? 'Club One liikmehinnad · inimese kohta · näidis' : 'Hinnad inimese kohta · näidis';
+    cal.classList.toggle('is-club', st.club || st.promo);
+    $('[data-cal-hint]').textContent = [st.club && 'Club One', st.promo && 'kood PAUS20'].filter(Boolean).length ? `Soodushinnad (${[st.club && 'Club One', st.promo && 'PAUS20'].filter(Boolean).join(' + ')}) · inimese kohta · näidis` : 'Hinnad inimese kohta · näidis';
   }
   grid.addEventListener('click', e => { const b = e.target.closest('[data-day]'); if (b) setDay(+b.dataset.day, true); });
   grid.addEventListener('keydown', e => {
@@ -162,6 +162,9 @@
     $('[data-sum-pp]').textContent = eur(pp());
     $('[data-sum-total]').textContent = `Kokku ${eur(total())} · ${st.pax} ${st.pax === 1 ? 'reisija' : 'reisijat'}`;
     $('[data-sum-club]').hidden = !st.club;
+    $('[data-sum-promo]').hidden = !st.promo;
+    const tkp = $('.ticket__pp'); let em = $('em', tkp); if (st.promo && !em) { em = document.createElement('em'); tkp.append(em); } if (em) em.textContent = st.promo ? 'Sooduskood PAUS20 · −20%' : ''; if (em && !st.promo) em.remove();
+    $('[data-promo-apply]').textContent = st.promo ? 'Kood lisatud ✓' : 'Kasuta koodi'; $('.offer--code').classList.toggle('is-applied', st.promo);
     const label = st.day ? 'Jätka broneerimist' : 'Vali kuupäev';
     $('[data-sum-cta]').textContent = label; $('[data-mbar-cta]').textContent = st.day ? 'Broneeri' : label;
     $('[data-mbar-name]').textContent = p.name;
@@ -207,6 +210,7 @@
     $('[data-dlg-route]').textContent = p.routeLong; $('[data-dlg-date]').textContent = fmtDate(st.day);
     $('[data-dlg-opt]').textContent = O().name;
     $('[data-dlg-pax]').textContent = `${st.pax} ${st.pax === 1 ? 'reisija' : 'reisijat'}${st.club ? ' · Club One' : ''}`;
+    $('[data-dlg-promo]').hidden = !st.promo;
     $('[data-dlg-total]').textContent = `${eur(total())} (näidis)`;
     dlg.showModal ? dlg.showModal() : dlg.setAttribute('open', '');
   }
@@ -249,6 +253,20 @@
   clubT.addEventListener('change', () => {
     st.club = clubT.checked; renderCal(); sync(true);
     cal.classList.remove('is-flash'); void cal.offsetWidth; cal.classList.add('is-flash');
+  });
+
+  /* ---------- offers: promo code ---------- */
+  const toastEl = $('[data-toast]'); let toastT;
+  const toast = (t) => { toastEl.textContent = t; toastEl.classList.add('is-on'); clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove('is-on'), 2600); };
+  function setPromo(on) { st.promo = on; renderCal(); sync(true); cal.classList.remove('is-flash'); void cal.offsetWidth; cal.classList.add('is-flash'); }
+  $('[data-promo-apply]').addEventListener('click', () => { if (st.promo) { go($('#pausid')); return; } setPromo(true); toast('Sooduskood PAUS20 lisatud — hinnad on −20%'); });
+  $('[data-promo-remove]').addEventListener('click', () => { setPromo(false); toast('Sooduskood eemaldatud'); });
+  const codeBtn = $('[data-code-copy]');
+  codeBtn.addEventListener('click', async () => {
+    let okc = false; try { await navigator.clipboard.writeText('PAUS20'); okc = true; } catch { /* clipboard blocked */ }
+    $('[data-code-state]').textContent = okc ? 'Kopeeritud' : 'PAUS20'; codeBtn.classList.toggle('is-copied', okc);
+    toast(okc ? 'Kood kopeeritud' : 'Kopeeri kood käsitsi: PAUS20');
+    setTimeout(() => { $('[data-code-state]').textContent = 'Kopeeri'; codeBtn.classList.remove('is-copied'); }, 2200);
   });
 
   /* ---------- compare slider ---------- */
@@ -348,7 +366,8 @@
 
   /* ---------- header, progress, nav state, mobile bar, reveal ---------- */
   const hdr = $('[data-hdr]'), mbar = $('[data-mbar]'), hero = $('.hero');
-  new IntersectionObserver(([en]) => { hdr.classList.toggle('is-solid', !en.isIntersecting); mbar.classList.toggle('is-on', !en.isIntersecting); }, { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
+  new IntersectionObserver(([en]) => { mbar.classList.toggle('is-on', !en.isIntersecting); }, { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
+  const solid = () => hdr.classList.toggle('is-solid', scrollY > 8); solid(); addEventListener('scroll', solid, { passive: true });
   let tick = false;
   addEventListener('scroll', () => { if (tick) return; tick = true; requestAnimationFrame(() => {
     const h = document.documentElement; hdr.style.setProperty('--p', (h.scrollTop / Math.max(1, h.scrollHeight - innerHeight)).toFixed(4)); tick = false; }); }, { passive: true });
@@ -359,6 +378,6 @@
   $$('.reveal').forEach((el, i) => { el.style.transitionDelay = `${(i % 4) * 70}ms`; rio.observe(el); });
 
   /* public API (used by tests and the case page) */
-  window.PAUS = { state: () => ({ ...st }), setPause, setDay, setPax, setClub: (on) => { clubT.checked = !!on; clubT.dispatchEvent(new Event('change')); } };
+  window.PAUS = { state: () => ({ ...st }), setPause, setDay, setPax, setPromo, setClub: (on) => { clubT.checked = !!on; clubT.dispatchEvent(new Event('change')); } };
   setPause(st.pause);
 })();

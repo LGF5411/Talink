@@ -64,6 +64,7 @@
 <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="M12 5v14" /></symbol>
 <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" /></symbol>
 </svg>
+<div class="toast" role="status" aria-live="polite" data-toast></div>
 <a class="skip" href="#pausid">Liigu broneerimise juurde</a>
 <div class="ribbon" role="note">Mitteametlik kontseptsioon · Unofficial concept — hinnad ja graafikud on näidised</div>
 
@@ -159,24 +160,13 @@
     </picture>
     <div class="hero__shade"></div>
     <div class="wrap hero__in">
-      <p class="eyebrow reveal">Jõulukruiisid ja päevareisid Tallinnast · detsember</p>
-      <h1 id="hero-title" class="hero__title"><span class="line"><span>Pane detsember</span></span><span class="line"><span>pausile.</span></span></h1>
-      <p class="hero__sub reveal">Kingid, tähtajad, peod. Detsember ei oota kedagi — aga meri ootab. Päev, öö või terve nädalavahetus merel.</p>
-      <div class="hero__cta reveal">
-        <a class="btn btn--lg" href="#pausid"><span class="pause" aria-hidden="true"><i></i><i></i></span>Vali oma paus</a>
-        <p class="hero__price">Päevapaus + jõulubuffet <b>alates 39 €</b> <small>näidishind</small></p>
+      <div class="hero__copy">
+        <p class="eyebrow reveal">Jõulukruiisid ja päevareisid Tallinnast · detsember</p>
+        <h1 id="hero-title" class="hero__title"><span class="line"><span>Pane detsember</span></span><span class="line"><span>pausile.</span></span></h1>
+        <p class="hero__sub reveal">Päev, öö või terve nädalavahetus merel — jõulubuffet on hinnas.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= QUICK TICKET ================= -->
-  <section class="tband" aria-labelledby="tk-title">
-    <div class="wrap">
-      <div class="tband__head reveal">
-        <h2 id="tk-title" class="tband__title"><svg aria-hidden="true"><use href="#i-ticket"/></svg>Tead juba, kuhu? <span>Broneeri ühe reaga.</span></h2>
-        <p class="tband__note">Kõik pausid algavad Tallinnast · näidishinnad</p>
-      </div>
-      <form class="ticket reveal" data-book-form novalidate>
+      <div class="hero__book">
+      <form class="ticket" data-book-form novalidate>
         <div class="ticket__main">
           <div class="tf">
             <span class="tf__ico" aria-hidden="true"><svg><use href="#i-map-pin"/></svg></span>
@@ -210,6 +200,31 @@
           <button class="btn btn--navy ticket__go" type="submit">Osta reis <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
         </div>
       </form>
+        <p class="hero__help"><span>Kõik pausid algavad Tallinnast · näidishinnad</span><a href="#pausid">Pole kindel? Vali pausi pikkus <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OFFERS ================= -->
+  <section class="offers" aria-label="Pakkumised">
+    <div class="wrap offers__in">
+      <article class="offer offer--code reveal">
+        <img class="offer__img" src="assets/img/pk-kruiis.jpg" alt="" aria-hidden="true" loading="lazy">
+        <div class="offer__body">
+          <p class="offer__k"><svg aria-hidden="true"><use href="#i-tag"/></svg>Jõulukampaania · näidis</p>
+          <h2 class="offer__t">Sooduskoodiga kõik pausid <b>−20%</b></h2>
+          <p class="offer__d">Broneeri kuni 30. novembrini, reisi 1.–23. detsembril.</p>
+        </div>
+        <div class="offer__act">
+          <button class="code" type="button" data-code-copy aria-label="Kopeeri sooduskood PAUS20"><span data-code>PAUS20</span><small data-code-state>Kopeeri</small></button>
+          <button class="btn btn--amber" type="button" data-promo-apply>Kasuta koodi</button>
+        </div>
+      </article>
+      <a class="offer offer--club reveal" href="#club-one">
+        <span class="offer__ico" aria-hidden="true"><svg><use href="#i-star"/></svg></span>
+        <span class="offer__body"><span class="offer__k">Club One</span><span class="offer__t">Liikmele veel −10%</span><span class="offer__d">Liikmehind liitub sooduskoodiga.</span></span>
+        <span class="offer__go" aria-hidden="true"><svg><use href="#i-arrow-right"/></svg></span>
+      </a>
     </div>
   </section>
 
@@ -268,6 +283,7 @@
                 <div><dt><svg aria-hidden="true"><use href="#i-ship"/></svg>Marsruut</dt><dd data-sum-route></dd></div>
                 <div><dt><svg aria-hidden="true"><use href="#i-calendar-days"/></svg>Kuupäev</dt><dd data-sum-date></dd></div>
                 <div><dt><svg aria-hidden="true"><use href="#i-bed-double"/></svg>Koht</dt><dd data-sum-opt></dd></div>
+                <div data-sum-promo hidden><dt><svg aria-hidden="true"><use href="#i-tag"/></svg>Sooduskood</dt><dd class="sumcode"><span>PAUS20 · −20%</span><button type="button" class="sumcode__x" aria-label="Eemalda sooduskood" data-promo-remove><svg><use href="#i-x"/></svg></button></dd></div>
                 <div><dt><svg aria-hidden="true"><use href="#i-users"/></svg>Reisijad</dt><dd>
                   <span class="stepper stepper--dark" role="group" aria-label="Reisijate arv">
                     <button type="button" aria-label="Vähem reisijaid" data-pax="-1"><svg><use href="#i-minus"/></svg></button>
@@ -518,6 +534,7 @@
         <div><dt>Kuupäev</dt><dd data-dlg-date></dd></div>
         <div><dt>Koht</dt><dd data-dlg-opt></dd></div>
         <div><dt>Reisijad</dt><dd data-dlg-pax></dd></div>
+        <div data-dlg-promo hidden><dt>Sooduskood</dt><dd>PAUS20 · −20%</dd></div>
         <div class="dlg__sum"><dt>Kokku</dt><dd data-dlg-total></dd></div>
       </dl>
       <p class="dlg__note">Kontseptsioonis viib nupp Tallinki broneerimissüsteemi, kuhu sinu valik on juba eeltäidetud.</p>
